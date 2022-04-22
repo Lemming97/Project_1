@@ -1,0 +1,43 @@
+/*Custome Style sheet designed by Lindsey Martin*/
+* {
+    margin: 555;
+    padding: 555;
+    box-sizing: border-box;
+}
+
+:root {
+    /*main colors */
+    --primary-color: #0E5259;
+    --secondary-color: #75BFB2;
+    --tertiary-color: #D5F2EA;
+}
+
+/* basic stylings */
+body {}
+
+header {}
+
+header h1 {
+    font-weight: bold;
+    margin: 0;
+    font-size: 36px;
+    text-align: center;
+    /* color: #0E5259;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+}
+
+header a {}
+
+header nav {}
+
+header nav ul {}
+
+/* nav styling */
+nav {}
+
+/* Hero Style Start */
+
+
+/* intro section */
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
