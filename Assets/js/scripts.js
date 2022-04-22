@@ -1,7 +1,7 @@
 
 
-var itemsInput = document.querySelector('#items'); //input field for initials 
-var itemSubmitBtn = document.querySelector('#submitBtn'); // save high scores
+var itemsInput = document.querySelector('#items'); //input field for items 
+var itemSubmitBtn = document.querySelector('#submitBtn'); // save items button
 //local storage
 itemSubmitBtn.addEventListener("click", function (event) {
     event.preventDefault();
