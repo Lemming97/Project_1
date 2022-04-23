@@ -1,23 +1,33 @@
 # Title / Project_1
 
-## About / Synopsis
+## About / User Story
 
-* What is it, what does it do / Abstract
-* Project status: working/prototype
-* Nuxeo Support
+* AS A User
+* I WANT to see drink mixes and locations to purchase ingredients
+* SO THAT I can plan a night of liquid revelrie
 
-See real examples:
+## Acceptence Criteria
+  minimum
+* GIVEN (a dashboard with form inputs for drink mix requests build a form)
+* WHEN I search for a drink
+* THEN I am presented with the drink name and ingredient list
+* WHEN I click on the ingredient list 
+* THEN I see nearby locations which to purchase ingredients (both liquor store/grocery market)
 
-* <https://github.com/nuxeo/nuxeo/blob/master/README.md>
-* <https://github.com/nuxeo/nuxeo-drive/blob/master/README.md>
-* <https://github.com/nuxeo/nuxeo-sdk-ios/blob/master/README.md>
+Extra
+* When I take a drinking quiz
+* THEN I am shown drink mix suggestion based on my choices
+* WHEN I enter ingredients into form
+* THEN I see possible drinks to make from ingredients on hand
+* WHEN I select locations for ingredients
+* THEN A travel map shows best route
+
 
 ## Table of contents
 
-Use for instance <https://github.com/ekalinin/github-markdown-toc>:
-
 > * [Title / Repository Name](#title--repository-name)
 >   * [About / Synopsis](#about--synopsis)
+>   * [Acceptence Criteria](#acceptence-criteria)
 >   * [Table of contents](#table-of-contents)
 >   * [Installation](#installation)
 >   * [Usage](#usage)
@@ -32,74 +42,61 @@ Use for instance <https://github.com/ekalinin/github-markdown-toc>:
 >   * [Resources (Documentation and other links)](#resources-documentation-and-other-links)
 >   * [Contributing / Reporting issues](#contributing--reporting-issues)
 >   * [License](#license)
->   * [About Nuxeo](#about-nuxeo)
+>   * [About Us](#about-us)
 
 ## Installation
 
-Sample:
-
-* From the Nuxeo Marketplace: install [the Sample Nuxeo Package](https://connect.nuxeo.com/nuxeo/site/marketplace/package/nuxeo-sample).
-* From the command line: `nuxeoctl mp-install nuxeo-sample`
+(run on webpage)
 
 ## Usage
+(Used for Adults)
 
 ### Screenshots
 
+(insert the screenshots)
+
 ### Features
+(what can it do?)
 
 ## Code
 
-[![Build Status](https://qa.nuxeo.org/jenkins/buildStatus/icon?job=/nuxeo/addons_nuxeo-sample-project-master)](https://qa.nuxeo.org/jenkins/job/nuxeo/job/addons_nuxeo-sample-project-master/)
+Built with HTML CSS BOOTSTRAP and FREE APIS
 
 ### Content
 
-Description, sub-modules organization...
+This is a front-end program designed to allow a user to find different drinks based on their own choices- (a quiz?), or ingredients.
 
 ### Requirements
 
-See [CORG/Compiling Nuxeo from sources](http://doc.nuxeo.com/x/xION)
-
-Sample: <https://github.com/nuxeo/nuxeo/blob/master/nuxeo-distribution/README.md>
+You should definately be over 21 in the United States to be using this. - Add an Alert forcing agrement they are over 21-
 
 ### Limitations
 
-Sample: <https://github.com/nuxeo-archives/nuxeo-features/tree/master/nuxeo-elasticsearch>
+There's only so many drinks currently known in the database. It is a practice that has ever new inventive drink formulations so bear with us as it may be out of date at time of publication. 
 
 ### Build
 
-    mvn clean install
-
-Build options:
+    v.1
 
 * ...
 
 ### Deploy (how to install build product)
 
-Direct to MP package if any. Otherwise provide steps to deploy on Nuxeo Platform:
-
- > Copy the built artifacts into `$NUXEO_HOME/templates/custom/bundles/` and activate the `custom` template.
+(insert depoly page here)
 
 ## Resources (Documentation and other links)
 
+API and other documentation here
+
 ## Contributing / Reporting issues
 
-Link to JIRA component (or project if there is no component for that project). Samples:
-
-* [Link to component](https://jira.nuxeo.com/issues/?jql=project%20%3D%20NXP%20AND%20component%20%3D%20Elasticsearch%20AND%20Status%20!%3D%20%22Resolved%22%20ORDER%20BY%20updated%20DESC%2C%20priority%20DESC%2C%20created%20ASC)
-* [Link to project](https://jira.nuxeo.com/secure/CreateIssue!default.jspa?project=NXP)
+* [Link to github] insert html
+* [Link to project]insert html
 
 ## License
 
-[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+API use licenses, github licenses 
 
-## About Nuxeo
+## About Us 
 
-Nuxeo Platform is an open source Content Services platform, written in Java. Data can be stored in both SQL & NoSQL databases.
-
-The development of the Nuxeo Platform is mostly done by Nuxeo employees with an open development model.
-
-The source code, documentation, roadmap, issue tracker, testing, benchmarks are all public.
-
-Typically, Nuxeo users build different types of information management solutions for [document management](https://www.nuxeo.com/solutions/document-management/), [case management](https://www.nuxeo.com/solutions/case-management/), and [digital asset management](https://www.nuxeo.com/solutions/dam-digital-asset-management/), use cases. It uses schema-flexible metadata & content models that allows content to be repurposed to fulfill future use cases.
-
-More information is available at [www.nuxeo.com](https://www.nuxeo.com).
+* We are new baby bootstrappers
