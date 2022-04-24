@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="./Assets/css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Project 1</title>
+    <title>Sippy-Sippy Till Your Tippy Tippy</title>
 </head>
 
 <body>
     <section>
         <header>
-            <h1>Project 1</h1>
+            <h1>Get Your Drink On!</h1>
         </header>
         <p id="intro-text" class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
             orci
@@ -26,6 +26,7 @@
         <section id="description">
             <div class="row p-1">
                 <div class="col-6">
+                    <!--Intro text telling the user what to do-->
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget tristique
                         et, interdum eget velit. Nulla facilisi.
 
@@ -41,24 +42,36 @@
                 </div>
             </div>
         </section>
-        <section id="end-quiz">
-            <div class="row p-1">
-                <h2>Enter your items here:</h2><br>
-                <div class="input-group">
-                    <p>
-                        <label for="YourInitials">Enter items:</label>
-                        <input type="text" name="name" id="items" placeholder="Filler text" />
-                        <button type="submit" class="btn btn-primary btn-sm" id="submitBtn">Submit</button>
-                    </p>
+
+        <!--User submit form for their drink recipe -->
+        <section id="drink-form">
+            <fieldset>
+                <div class="row p-1">
+                    <h2>Enter your items here:</h2><br>
+                    <div class="input-group">
+                        <p>
+                            <label for="YourInitials">Enter Drink name:</label>
+                            <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" />
+
+
+
+                            <label for="YourInitials">Enter Zipcode:</label>
+                            <input type="text" name="name" id="drinkNames" placeholder="90001" />
+
+
+                            <button type="submit" class="btn btn-primary btn-sm" id="getMyDrinkSubmit">Submit</button>
+
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </fieldset>
         </section>
-
-    </section>
-
+        <!--Display Name of inputted Drink the user has submitted and nearest location -->
 
 
-    <script src="./Assets/js/scripts.js"></script>
+
+
+        <script src="./Assets/js/scripts.js"></script>
 </body>
 
 </html>
