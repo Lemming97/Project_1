@@ -82,7 +82,7 @@ There's only so many drinks currently known in the database. It is a practice th
 
 ### Deploy (how to install build product)
 
-(insert depoly page here)
+(insert deploy page here)
 
 ## Resources (Documentation and other links)
 
