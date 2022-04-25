@@ -19,7 +19,10 @@
 
 
 /* basic stylings */
-body {}
+body {
+    font-family: 'Libre Baskerville', serif;
+    font-family: 'Open Sans', sans-serif;
+}
 
 header {}
 
@@ -31,6 +34,8 @@ header h1 {
     /* color: #0E5259;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
+
+
 
 header a {}
 
@@ -47,11 +52,12 @@ nav {}
     margin-bottom: 250px;
     margin-right: 150px;
     margin-left: 80px;
-    
+
 
 }
 
-#modal-confirm-yes, #modal-confirm-no {
+#modal-confirm-yes,
+#modal-confirm-no {
     display: inline-block;
     font-size: 45px;
     justify-content: space-between;
@@ -63,9 +69,9 @@ nav {}
 
 
 
-    /* Hero Style Start */
+/* Hero Style Start */
 
 
-    /* intro section */
+/* intro section */
 
-    /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */

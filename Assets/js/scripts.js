@@ -12,24 +12,10 @@
 
 var modalEL = document.querySelector('#modal-buttons');
 var drinkBodyEL = document.querySelector('#drink-Body');
-var confirmYes = document.querySelector('#modal-confirm-yes');
-var confirmNo = document.querySelector('#modal-confirm-no');
+// var confirmYes = document.querySelector('#modal-confirm-yes');
+// var confirmNo = document.querySelector('#modal-confirm-no');
 
-
-// confirmYes.addEventListener("click", function (event) {
-//     var target = event.target;
-//     drinkBodyEL.removeAttribute("class");
-// });
-
-// confirmNo.addEventListener("click", function (event) {
-//     var target = event.target;
-
-//     modalEL.textContent = "Sorry! You're too young!";
-
-// });
-
-
-
+//age confirmation screen and buttons
 modalEL.addEventListener("click", function (event) {
     var target = event.target;
     console.log(event.target.matches("button")); // can filter the event  based on the ID of the event
@@ -44,7 +30,7 @@ modalEL.addEventListener("click", function (event) {
 
         } else if (target.id === "modal-confirm-no") {
             modalEL.textContent = "Sorry! You're too young!";
-            modalEL.setAttribute("class", "result");
+            modalEL.setAttribute("style", "font-size:35px; text-align:center;");
             setTimeout(function () {
                 modalEL.setAttribute("class", "result hide");
             }, 1000);
@@ -53,7 +39,6 @@ modalEL.addEventListener("click", function (event) {
         }
     } else {
         event.preventDefault();
-        console.log("clicked the div");
 
     }
 
