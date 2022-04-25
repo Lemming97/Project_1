@@ -11,78 +11,103 @@
 </head>
 
 <body>
-    <section>
-        <header>
-            <h1>Get Your Drink On!</h1>
-        </header>
-        <p id="intro-text" class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            orci
-            leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.
-        </p>
-    </section>
+    <div id="drink-Body" class="hide">
+        <section>
+            <header>
+                <h1>Get Your Drink On!</h1>
+            </header>
+            <p id="intro-text" class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Morbi
+                orci
+                leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.
+            </p>
+        </section>
 
 
-    <section>
-        <section id="description">
-            <div class="row p-1">
-                <div class="col-6">
-                    <!--Intro text telling the user what to do-->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget tristique
-                        et, interdum eget velit. Nulla facilisi.
+        <section>
+            <section id="description">
+                <div class="row p-1">
+                    <div class="col-6">
+                        <!--Intro text telling the user what to do-->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget
+                            tristique
+                            et, interdum eget velit. Nulla facilisi.
 
-                    </p>
+                        </p>
+                    </div>
                 </div>
+            </section>
+
+            <!--User submit form for their drink recipe -->
+            <section id="drink-form">
+                <fieldset>
+                    <div class="row p-1">
+                        <h2>Enter your items here:</h2><br>
+                        <div class="input-group">
+                            <p>
+                                <label for="YourDrink">Enter Drink name:</label>
+                                <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" />
+
+
+
+                                <label for="YourZip">Enter Zipcode:</label>
+                                <input type="text" name="name" id="drinkNames" placeholder="90001" />
+
+
+                                <button type="submit" class="btn btn-primary btn-sm"
+                                    id="getMyDrinkSubmit">Submit</button>
+
+                            </p>
+                        </div>
+                    </div>
+                </fieldset>
+            </section>
+            <!--User submit form for their RANDOM drink recipe -->
+            <section id="drink-form">
+                <fieldset>
+                    <div class="row p-1">
+                        <h2>Do you feel lucky?</h2><br>
+                        <div class="input-group">
+                            <p>
+                                <!-- <label for="YourInitials">Enter Drink name:</label> -->
+                                <!-- <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" /> -->
+                                <button type="submit" class="btn btn-primary btn-sm" id="getRandomDrinkSubmit">Click
+                                    Me!</button>
+
+                            </p>
+                        </div>
+                    </div>
+                </fieldset>
+            </section>
+
+
+            <!--Display Name of inputted Drink the user has submitted and nearest location -->
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <!--Modal buttons-->
+
+    <section class="text-center">
+        <div id="modal-buttons">
+            <h1>
+                Test
+            </h1>
+            <div>
+                <button type="submit" class="btn btn-primary btn-sm" id="modal-confirm-yes">Yes</button>
+                <button type="submit" class="btn btn-primary btn-sm" id="modal-confirm-no">No</button>
+
             </div>
-        </section>
-
-        <!--User submit form for their drink recipe -->
-        <section id="drink-form">
-            <fieldset>
-                <div class="row p-1">
-                    <h2>Enter your items here:</h2><br>
-                    <div class="input-group">
-                        <p>
-                            <label for="YourDrink">Enter Drink name:</label>
-                            <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" />
-
-
-
-                            <label for="YourZip">Enter Zipcode:</label>
-                            <input type="text" name="name" id="drinkNames" placeholder="90001" />
-
-
-                            <button type="submit" class="btn btn-primary btn-sm" id="getMyDrinkSubmit">Submit</button>
-
-                        </p>
-                    </div>
-                </div>
-            </fieldset>
-        </section>
-        <!--User submit form for their RANDOM drink recipe -->
-        <section id="drink-form">
-            <fieldset>
-                <div class="row p-1">
-                    <h2>Do you feel lucky?</h2><br>
-                    <div class="input-group">
-                        <p>
-                            <!-- <label for="YourInitials">Enter Drink name:</label> -->
-                            <!-- <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" /> -->
-                            <button type="submit" class="btn btn-primary btn-sm" id="getRandomDrinkSubmit">Click
-                                Me!</button>
-
-                        </p>
-                    </div>
-                </div>
-            </fieldset>
-        </section>
-
-
-        <!--Display Name of inputted Drink the user has submitted and nearest location -->
-
-
-
-
-        <script src="./Assets/js/scripts.js"></script>
+        </div>
+    </section>
+    <script src="./Assets/js/scripts.js"></script>
 </body>
 
 </html>

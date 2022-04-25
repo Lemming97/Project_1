@@ -13,6 +13,11 @@
     --tertiary-color: #D5F2EA;
 }
 
+.hide {
+    display: none;
+}
+
+
 /* basic stylings */
 body {}
 
@@ -36,9 +41,31 @@ header nav ul {}
 /* nav styling */
 nav {}
 
-/* Hero Style Start */
+#modal-buttons {
+    display: center;
+    margin-top: 250px;
+    margin-bottom: 250px;
+    margin-right: 150px;
+    margin-left: 80px;
+    
+
+}
+
+#modal-confirm-yes, #modal-confirm-no {
+    display: inline-block;
+    font-size: 45px;
+    justify-content: space-between;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 5px;
+    /* background-color: #96D6B5; */
+}
 
 
-/* intro section */
 
-/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+    /* Hero Style Start */
+
+
+    /* intro section */
+
+    /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
