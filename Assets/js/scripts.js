@@ -56,7 +56,7 @@ var saveUserDrinks = function () {
     if (userDrinkInput !== "" && userZipCodeInput !== "") {
         // get saved scores from local storage, or if not any, set to empty array
         var drinkResults =
-            JSON.parse(window.localStorage.getItem("user-results")) || [];
+            JSON.parse(window.localStorage.getItem("drinkResults")) || [];
 
         // format new score object for current user
         var userCustomDrink = {
@@ -79,15 +79,12 @@ function displayDrinkResults() {
 
 
     // either get scores from local storage or set to empty array
-    var drinkResults = JSON.parse(window.localStorage.getItem("user-results")) || [];
+    var drinkResults = JSON.parse(window.localStorage.getItem("userDrinkInput")) || [];
 
-    // // sort high scores by score property in descending order
-    // drinkResults.sort(function (a, b) {
-    //     return b.score - a.score;
-    // });
+   
 
     drinkResults.forEach(function (drink, zipCode) {
-        console.log(drink, zipCode);
+        console.log(drink, zipCode); // ask about this in class 
         // create li tag for each item
         var liEl = document.createElement("li");
         liEl.textContent = drink.userDrinkInput + " & " + zipCode.userZipCodeInput;
