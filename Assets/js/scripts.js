@@ -45,26 +45,69 @@ modalEL.addEventListener("click", function (event) {
 
 });
 
+var drinkInputEL = document.querySelector('#drink-name');
+var zipCodeInputEL = document.querySelector('#zipcode');
+
+var saveUserDrinks = function () {
+    // get value of input box
+    var userDrinkInput = drinkInputEL.value.trim();
+    var userZipCodeInput = zipCodeInputEL.value.trim();
+
+    if (userDrinkInput !== "" && userZipCodeInput !== "") {
+        // get saved scores from local storage, or if not any, set to empty array
+        var drinkResults =
+            JSON.parse(window.localStorage.getItem("user-results")) || [];
+
+        // format new score object for current user
+        var userCustomDrink = {
+            drink: userDrinkInput,
+            zipCode: userZipCodeInput
+        };
+
+        // save to local storage
+        drinkResults.push(userCustomDrink);
+        window.localStorage.setItem("userCustomDrink", JSON.stringify(userCustomDrink));
+
+
+    }
+
+
+};
+
+
+function displayDrinkResults() {
+
+
+    // either get scores from local storage or set to empty array
+    var drinkResults = JSON.parse(window.localStorage.getItem("user-results")) || [];
+
+    // // sort high scores by score property in descending order
+    // drinkResults.sort(function (a, b) {
+    //     return b.score - a.score;
+    // });
+
+    drinkResults.forEach(function (drink, zipCode) {
+        console.log(drink, zipCode);
+        // create li tag for each item
+        var liEl = document.createElement("li");
+        liEl.textContent = drink.userDrinkInput + " & " + zipCode.userZipCodeInput;
+
+        // display on page
+        var olEl = document.getElementById("user-results");
+        olEl.appendChild(liEl);
+
+    });
+}
+
+// // run function
+displayDrinkResults();
+
+
+
+
 
 
 //2. submitting items to local storage returning them to the page and then displaying the info the user 
-
-var itemsInput = document.querySelector('#drinkNames'); //input field for drinkName 
-var itemSubmitBtn = document.querySelector('#getMyDrinkSubmit'); // save items button
-//local storage
-itemSubmitBtn.addEventListener("click", function (event) {
-    event.preventDefault();
-
-    var items = {
-        item: itemsInput.value.trim()
-    };
-
-    // set new submission to local storage 
-    localStorage.setItem("items", JSON.stringify(items));
-    var test = JSON.parse(localStorage.getItem('items'));
-    console.log(test.itemsInput);
-
-});
 
 //3. api pull
 
