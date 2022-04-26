@@ -28,6 +28,7 @@ modalEL.addEventListener("click", function (event) {
             drinkBodyEL.removeAttribute("class");
 
 
+
         } else if (target.id === "modal-confirm-no") {
             modalEL.textContent = "Sorry! You're too young!";
             modalEL.setAttribute("style", "font-size:35px; text-align:center;");
@@ -48,6 +49,10 @@ modalEL.addEventListener("click", function (event) {
 var drinkInputEL = document.querySelector('#drink-name');
 var zipCodeInputEL = document.querySelector('#zipcode');
 
+var drinkResults =
+JSON.parse(window.localStorage.getItem("drinkResults")) || [];
+
+//set this to an event listener 
 var saveUserDrinks = function () {
     // get value of input box
     var userDrinkInput = drinkInputEL.value.trim();
@@ -55,8 +60,8 @@ var saveUserDrinks = function () {
 
     if (userDrinkInput !== "" && userZipCodeInput !== "") {
         // get saved scores from local storage, or if not any, set to empty array
-        var drinkResults =
-            JSON.parse(window.localStorage.getItem("drinkResults")) || [];
+        // var drinkResults =
+        //     JSON.parse(window.localStorage.getItem("drinkResults")) || [];
 
         // format new score object for current user
         var userCustomDrink = {
@@ -66,38 +71,41 @@ var saveUserDrinks = function () {
 
         // save to local storage
         drinkResults.push(userCustomDrink);
-        window.localStorage.setItem("userCustomDrink", JSON.stringify(userCustomDrink));
+        window.localStorage.setItem("userCustomDrink", JSON.stringify(drinkResults));
 
 
     }
-
+    displayDrinkResults();
 
 };
+
+
 
 
 function displayDrinkResults() {
 
 
     // either get scores from local storage or set to empty array
-    var drinkResults = JSON.parse(window.localStorage.getItem("userDrinkInput")) || [];
+    // var drinkResults = JSON.parse(window.localStorage.getItem("userCustomDrink"));
+    console.log(drinkResults);
 
-   
+// how we can not loop through the array each time we add something new ? 
 
-    drinkResults.forEach(function (drink, zipCode) {
-        console.log(drink, zipCode); // ask about this in class 
+    drinkResults.forEach(function ({zipCode, drink}) {
+        console.log(zipCode); // ask about this in class 
         // create li tag for each item
         var liEl = document.createElement("li");
-        liEl.textContent = drink.userDrinkInput + " & " + zipCode.userZipCodeInput;
+        liEl.textContent = drink + " & " + zipCode;
 
         // display on page
         var olEl = document.getElementById("user-results");
         olEl.appendChild(liEl);
 
     });
-}
-
+};
+// saveUserDrinks();
 // // run function
-displayDrinkResults();
+// displayDrinkResults();
 
 
 
