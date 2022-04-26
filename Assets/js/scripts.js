@@ -103,9 +103,7 @@ function displayDrinkResults() {
 
     });
 };
-// saveUserDrinks();
-// // run function
-// displayDrinkResults();
+
 
 
 
