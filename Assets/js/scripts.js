@@ -26,6 +26,8 @@ modalEL.addEventListener("click", function (event) {
         if (target.id === "modal-confirm-yes") {
             console.log("yes");
             drinkBodyEL.removeAttribute("class");
+            modalEL.setAttribute("class", "hide");
+
 
 
 
