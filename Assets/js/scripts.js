@@ -48,6 +48,30 @@ modalEL.addEventListener("click", function (event) {
 var drinkInputEL = document.querySelector('#drink-name');
 var zipCodeInputEL = document.querySelector('#zipcode');
 
+
+var getUserRepos = function(user) {
+  // format the github api url
+  var apiUrl ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita/";
+
+  // make a get request to url
+  fetch(apiUrl)
+    .then(function(response) {
+      // request was successful
+      if (response.ok) {
+        console.log(response);
+        response.json().then(function() {
+          console.log();
+          displayRepos();
+        });
+      } else {
+        alert("Error: " + response.statusText);
+      }
+    })
+    .catch(function(error) {
+      alert("No Drinks Today");
+    });
+};
+
 var saveUserDrinks = function () {
     // get value of input box
     var userDrinkInput = drinkInputEL.value.trim();
@@ -109,3 +133,28 @@ displayDrinkResults();
 //3. api pull
 
 //4. returning data from API 
+
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Host": "the-cocktail-db.p.rapidapi.com",
+    "X-RapidAPI-Key": "c82966ca79msh40d9841ec710c9ap19b121jsne3cefa5d0a4f",
+  },
+};
+
+fetch("https://the-cocktail-db.p.rapidapi.com/search.php?i=vodka", options)
+  .then((response) => response.json())
+  .then((response) => console.log(response))
+  .catch((err) => console.error(err));
+
+
+  function httpGetAsync("https://api.yelp.com/v3/businesses/search", callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+      if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        callback(xmlHttp.responseText);
+    };
+    xmlHttp.open("GET", "https://api.yelp.com/v3/businesses/search", true); 
+    // true for asynchronous
+    xmlHttp.send(null);
+  }
