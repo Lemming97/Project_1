@@ -50,7 +50,7 @@ var drinkInputEL = document.querySelector('#drink-name');
 var zipCodeInputEL = document.querySelector('#zipcode');
 
 var drinkResults =
-JSON.parse(window.localStorage.getItem("drinkResults")) || [];
+    JSON.parse(window.localStorage.getItem("drinkResults")) || [];
 
 //set this to an event listener 
 var saveUserDrinks = function () {
@@ -89,19 +89,28 @@ function displayDrinkResults() {
     // var drinkResults = JSON.parse(window.localStorage.getItem("userCustomDrink"));
     console.log(drinkResults);
 
-// how we can not loop through the array each time we add something new ? 
+    // how we can not loop through the array each time we add something new ? 
+    // display on page
+    var olEl = document.getElementById("user-results");
+    olEl.textContent = "";
 
-    drinkResults.forEach(function ({zipCode, drink}) {
+
+    drinkResults.forEach(function ({
+        zipCode,
+        drink
+    }) {
         console.log(zipCode); // ask about this in class 
         // create li tag for each item
         var liEl = document.createElement("li");
         liEl.textContent = drink + " & " + zipCode;
-
-        // display on page
-        var olEl = document.getElementById("user-results");
         olEl.appendChild(liEl);
 
+        // // display on page
+        // var olEl = document.getElementById("user-results");
+        // olEl.appendChild(liEl);
+
     });
+
 };
 
 
