@@ -26,7 +26,7 @@ body {
 
 header {}
 
-header h1 {
+header h1, h1 {
     font-weight: bold;
     margin: 0;
     font-size: 36px;
@@ -34,6 +34,7 @@ header h1 {
     /* color: #0E5259;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
+
 
 
 
@@ -75,3 +76,7 @@ nav {}
 /* intro section */
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+
+@media only screen and (max-width:768px) {
+
+}
