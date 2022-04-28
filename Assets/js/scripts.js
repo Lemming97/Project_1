@@ -84,30 +84,20 @@ var saveUserDrinks = function () {
 
 function displayDrinkResults() {
 
-
-    // either get scores from local storage or set to empty array
-    // var drinkResults = JSON.parse(window.localStorage.getItem("userCustomDrink"));
     console.log(drinkResults);
 
-    // how we can not loop through the array each time we add something new ? 
     // display on page
     var olEl = document.getElementById("user-results");
-    olEl.textContent = "";
+    olEl.textContent = ""; //
 
 
-    drinkResults.forEach(function ({
-        zipCode,
-        drink
-    }) {
+    drinkResults.forEach(function ({zipCode,drink}) {
         console.log(zipCode); // ask about this in class 
         // create li tag for each item
         var liEl = document.createElement("li");
         liEl.textContent = drink + " & " + zipCode;
         olEl.appendChild(liEl);
 
-        // // display on page
-        // var olEl = document.getElementById("user-results");
-        // olEl.appendChild(liEl);
 
     });
 
