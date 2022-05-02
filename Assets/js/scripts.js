@@ -134,20 +134,207 @@ displayDrinkResults();
 
 //4. returning data from API 
 
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Host": "the-cocktail-db.p.rapidapi.com",
-    "X-RapidAPI-Key": "c82966ca79msh40d9841ec710c9ap19b121jsne3cefa5d0a4f",
-  },
-};
+//Need to link parameters
 
-fetch("https://the-cocktail-db.p.rapidapi.com/search.php?i=vodka", options)
-  .then((response) => response.json())
-  .then((response) => console.log(response))
-  .catch((err) => console.error(err));
+console.info('js/cocktails.js loaded');
+
+document.addEventListener('prechange', function(event) {
+    document.querySelector('ons-toolbar .center')
+        .innerHTML = event.tabItem.getAttribute('label');
+});
+
+function getRandomCocktail(){
+    fetch("www.thecocktaildb.com/api/json/v1/1/random.php")
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+
+        // Examine the text in the response
+        response.json().then(function (data) {
+          console.log(data);
+          displayRandomCocktail (data);
+
+        });
+      })
+      .catch(function (err) {
+        console.log("Fetch Error :-S", err);
+      });
+    }
+    getRandomCocktail();
+
+    function displayRandomCocktail(cocktail){
+        console.log(cocktail[0]);
+
+        let drinkSection = document.querySelector('#drink-section');
+
+        let drinkName = document.createElement('h2');
+
+        drinkName.innerHTML =cocktail.drinks[0].strDrink;
+
+        drinkSection.appendChild(drinkName);
+
+        let img = document.createElement('img');
+        img.src = cocktail.drinks[0].strDrinkThumb;
+
+        drinkSection.appendChild(img);
+
+    for (let i = 1; i < 16; i++) {
+
+        if (cocktail.drinks[0]['strIngedient${i}'] == null || cocktail.drinks[0]['strIngedient${i}'] == ''){
+            break;
+        }
+
+        let ingredient  = document.createElement('ons-list-item');
+        ingredient.innerHTML =  cocktail.drinks[0]['strMeasure${i}']+ ':' + cocktail.drinks[0]["strIngedient${i}"];
+
+        drinkSection.appendChild(ingredient);
 
 
+    }
+    let card = document.createElement ('ons-card');
+    card.innerHTML = cocktail.drinks[0].strInstructions;
+    
+    drinkSection.appendChild(card1);
+ }
+// End Random Cocktail Example
+
+//Named Cocktail Query
+ document.addEventListener('prechange', function(event) {
+    document.querySelector('ons-toolbar .center')
+        .innerHTML = event.tabItem.getAttribute('label');
+});
+
+function getNamedCocktail(){
+    fetch("www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+
+        // Examine the text in the response
+        response.json().then(function (data) {
+          console.log(data);
+          displayNamedCocktail (data);
+
+        });
+      })
+      .catch(function (err) {
+        console.log("Fetch Error :-S", err);
+      });
+    }
+    getNamedCocktail();
+
+    function displaynamedCocktail(cocktail){
+        console.log(cocktail[0]);
+
+        let drinkSection = document.querySelector('#drink-section');
+
+        let drinkName = document.createElement('h2');
+
+        drinkName.innerHTML =cocktail.drinks[0].strDrink;
+
+        drinkSection.appendChild(drinkName);
+
+        let img = document.createElement('img');
+        img.src = cocktail.drinks[0].strDrinkThumb;
+
+        drinkSection.appendChild(img);
+
+    for (let i = 1; i < 16; i++) {
+
+        if (cocktail.drinks[0]['strIngedient${i}'] == null || cocktail.drinks[0]['strIngedient${i}'] == ''){
+            break;
+        }
+
+        let ingredient  = document.createElement('ons-list-item');
+        ingredient.innerHTML =  cocktail.drinks[0]['strMeasure${i}']+ ':' + cocktail.drinks[0]["strIngedient${i}"];
+
+        drinkSection.appendChild(ingredient);
+
+
+    }
+
+
+
+    // location function
+    let card = document.createElement ('ons-card');
+    card.innerHTML = cocktail.drinks[0].strInstructions;
+    
+    drinkSection.appendChild(card3);
+
+ document.addEventListener('prechange', function(event) {
+    document.querySelector('ons-toolbar .center')
+        .innerHTML = event.tabItem.getAttribute('label');
+});
+
+function getLiquorLocation(){
+    fetch("www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+
+        // Examine the text in the response
+        response.json().then(function (data) {
+          console.log(data);
+          displayNamedCocktail (data);
+
+        });
+      })
+      .catch(function (err) {
+        console.log("Fetch Error :-S", err);
+      });
+    }
+    getNamedCocktail();
+
+    function displaynamedCocktail(cocktail){
+        console.log(cocktail[0]);
+
+        let drinkSection = document.querySelector('#drink-section');
+
+        let drinkName = document.createElement('h2');
+
+        drinkName.innerHTML =cocktail.drinks[0].strDrink;
+
+        drinkSection.appendChild(drinkName);
+
+        let img = document.createElement('img');
+        img.src = cocktail.drinks[0].strDrinkThumb;
+
+        drinkSection.appendChild(img);
+
+    for (let i = 1; i < 16; i++) {
+
+        if (cocktail.drinks[0]['strIngedient${i}'] == null || cocktail.drinks[0]['strIngedient${i}'] == ''){
+            break;
+        }
+
+        let ingredient  = document.createElement('ons-list-item');
+        ingredient.innerHTML =  cocktail.drinks[0]['strMeasure${i}']+ ':' + cocktail.drinks[0]["strIngedient${i}"];
+
+        drinkSection.appendChild(ingredient);
+
+    }
+    let card = document.createElement ('ons-card');
+    card.innerHTML = cocktail.drinks[0].strInstructions;
+    
+    drinkSection.appendChild(card2);
+
+
+
+
+
+// Need help with this
   function httpGetAsync("https://api.yelp.com/v3/businesses/search", callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
