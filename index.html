@@ -64,36 +64,34 @@
 
         <!--User submit form for their drink recipe -->
         <section class="container">
-            <div id="user-drink-form">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-12">
-                        <h1>Enter your items here:</h1><br>
-                        <div class="input-group">
 
-                            <label for="YourDrink">Enter Drink name:</label>&nbsp;
-                            <input type="text" name="name" id="drink-name" placeholder="Filler Drink Name" /> &nbsp;
-
-
-                            <label for="YourZip">Enter Zipcode:</label>&nbsp;
-                            <input type="text" name="name" id="zipcode" placeholder="90001" />&nbsp;
-
-
-                            <button type="submit" class="btn btn-primary btn-sm" id="getMyDrinkSubmit"
-                                onclick="saveUserDrinks()">Submit</button>
-
-
-                            <div class="col-12">
-                                <span id="drink-results">
-                                </span>
-
-                                <ol id="user-results"></ol>
-
-
-
-                            </div>
-                        </div>
+            <h1>Enter your items here:</h1>
+            <div class="row flex-column justify-content-center align-items-center">
+                <div class="col d-flex justify-content-center align-items-center">
+                    <div class="mx-2">
+                        <label for="YourDrink" class="form-label">Enter Drink name:</label>
+                        <input type="text" name="name" id="drink-name" class="form-control"
+                            placeholder="Filler Drink Name" />
+                    </div>
+                    <div class="mx-2">
+                        <label for="YourZip" class="form-label">Enter Zipcode:</label>
+                        <input type="text" name="name" id="zipcode" class="form-control" placeholder="90001" />
                     </div>
                 </div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <button type="submit" class="btn btn-primary btn-sm my-2" id="getMyDrinkSubmit"
+                        onclick="saveUserDrinks()">Submit</button>
+                </div>
+            </div>
+            <div class="col-12">&nbsp;
+                <div class="d-flex justify-content-center">
+                    <div id="drink-results">
+                    </div>
+
+                    <ol id="user-results"></ol>
+
+                </div>
+
             </div>
         </section>
 
@@ -105,22 +103,15 @@
                 <div class="row justify-content-center align-items-center">
                     <div class="col-12">
                         <h1>Do you feel lucky?</h1><br>
-                        <div class="input-group">
-                            <p>
-                                <!-- <label for="YourInitials">Enter Drink name:</label> -->
-                                <!-- <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" /> -->
-                                <button type="submit" class="btn btn-primary btn-sm" id="getRandomDrinkSubmit"
-                                    onclick="getRandomCocktail()">Click
-                                    Me!</button>
-                                <span id="drink-section"></span><br>
-                                <span id="drink-ingredient1"></span><br>
-                                <span id="drink-ingredient2"></span><br>
-                                <span id="drink-ingredient3"></span><br>
-                                <span id="drink-ingredient4"></span><br>
-                                <span id="drink-instructions"></span><br>
-
-
-                            </p>
+                        <div class="random-input-group">
+                            <!-- <label for="YourInitials">Enter Drink name:</label> -->
+                            <!-- <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" /> -->
+                            <button type="submit" class="btn btn-primary btn-sm" id="getRandomDrinkSubmit"
+                                onclick="getRandomCocktail()">Click
+                                Me!</button>
+                            <div id="drink-section"></div>
+                            <div id="drink-ingredients"></div>
+                            <div id="drink-instructions"></div>
                         </div>
                     </div>
                 </div>

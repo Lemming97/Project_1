@@ -110,29 +110,59 @@ getNamedCocktail();
 var getRandomCocktail = function () {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
         .then(response => response.json())
-        .then(data => displayRandomCocktail(data));
+        .then(data => data.drinks[0])
+        .then(cocktail => {
+            console.log(cocktail);
+            // strIngredientN
+            // strMeasureN
+            var ingredients = [];
+            for (var i = 1; i <= 15; i++) {
+                var ingredientName = cocktail["strIngredient" + i];
+                var ingredientMeasure = cocktail["strMeasure" + i];
+                if (ingredientName !== null) {
+                    ingredients.push({
+                        name: ingredientName,
+                        measure: ingredientMeasure,
+                    })
+                }
+            }
+            return {
+                drinkName: cocktail.strDrink,
+                thumbnailImage: cocktail.strDrinkThumb,
+                instructions: cocktail.strInstructions,
+                ingredients,
+            }
+        })
+        .then(cocktail => displayRandomCocktail(cocktail));
 };
 
 
 
 function displayRandomCocktail(cocktail) {
-    console.log(cocktail.drinks[0]);
-    console.log(cocktail.drinks[0].strIngredient1 + cocktail.drinks[0].strMeasure1);
-    console.log(cocktail.drinks[0].strIngredient2 + cocktail.drinks[0].strMeasure2);
-    console.log(cocktail.drinks[0].strIngredient3 + cocktail.drinks[0].strMeasure3);
+    console.log(cocktail)
+    // console.log(cocktail.drinks[0]);
+    // console.log(cocktail.drinks[0].strIngredient1 + cocktail.drinks[0].strMeasure1);
+    // console.log(cocktail.drinks[0].strIngredient2 + cocktail.drinks[0].strMeasure2);
+    // console.log(cocktail.drinks[0].strIngredient3 + cocktail.drinks[0].strMeasure3);
 
     // console.log(randomDrinkData.strInstructions);
-    var randomDrinkData = cocktail.drinks[0];
+    //var randomDrinkData = cocktail.drinks[0];
     //section or title
     let drinkSection = document.querySelector('#drink-section');
+    drinkSection.innerHTML = "";
     let drinkName = document.createElement('h2');
-    drinkName.innerHTML = randomDrinkData.strDrink;
+    drinkName.className = "drink-name"
+    drinkName.innerHTML = cocktail.drinkName;
     drinkSection.appendChild(drinkName);
     // image 
     let img = document.createElement('img');
-    img.src = randomDrinkData.strDrinkThumb;
+    img.src = cocktail.thumbnailImage;
     img.setAttribute("class", "randomDrinkImg");
     drinkSection.appendChild(img);
+
+
+
+
 
     // for (let i = 1; i < 16; i++) {
     //     // if (randomDrinkData['strIngredient'] == null || randomDrinkData['strIngredient'] == '') {
@@ -163,19 +193,22 @@ function displayRandomCocktail(cocktail) {
     // //     drinkSection.appendChild(randomDrinkData.strIngredient5);
     // // }
 
-    // // //drink ingredient 
-    // // let ingredient = document.querySelector('#drink-ingredient');
-    // // let drinkIngredient = document.createElement('div');
-    // ingredient.innerHTML = randomDrinkData['strMeasure{i}'] + ':' + randomDrinkData["strIngredient{i}"];
+    var ingredientsDiv = document.querySelector('#drink-ingredients');
+    ingredientsDiv.innerHTML = "";
+    cocktail.ingredients.forEach(({name, measure}) => {
+        //drink ingredient 
+        var drinkIngredient = document.createElement('div');
+        drinkIngredient.innerHTML = measure + " - " + name;
+        ingredientsDiv.appendChild(drinkIngredient);
+    })
 
     // }
 
     //drink instructions 
     let instructions = document.querySelector('#drink-instructions');
+    instructions.innerHTML = "";
     let drinkInstructions = document.createElement('div');
-    instructions.innerHTML = randomDrinkData.strInstructions;
-    console.log(randomDrinkData.strInstructions);
+    instructions.innerHTML = cocktail.instructions;
+    console.log(cocktail.instructions);
     drinkSection.appendChild(drinkInstructions);
 };
-
-displayRandomCocktail();
