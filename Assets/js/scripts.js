@@ -131,6 +131,7 @@ function displayRandomCocktail(cocktail) {
     // image 
     let img = document.createElement('img');
     img.src = randomDrinkData.strDrinkThumb;
+    img.setAttribute("class", "randomDrinkImg");
     drinkSection.appendChild(img);
 
     // for (let i = 1; i < 16; i++) {
@@ -139,15 +140,10 @@ function displayRandomCocktail(cocktail) {
     //     // }
 
 
-    let ingredient = document.querySelector('#drink-ingredient');
-    let drinkIngredient = document.createElement('li');
-    ingredient.innerHTML = randomDrinkData.strIngredient1;
-
-
-    ingredient.innerHTML = randomDrinkData.strIngredient2;
-    ingredient.innerHTML = randomDrinkData.strIngredient3;
-
-    drinkSection.appendChild(drinkIngredient);
+    // let ingredient = document.querySelector('#drink-ingredient');
+    // let drinkIngredient = document.createElement('li');
+    // ingredient.innerHTML = randomDrinkData.strIngredient1;
+    // drinkSection.appendChild(drinkIngredient);
 
 
     // if (randomDrinkData.strIngredient1) {
