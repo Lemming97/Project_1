@@ -66,23 +66,21 @@ var saveUserDrinks = function () {
 
 };
 
-
-
-
-function displayDrinkResults() {
+//display items entered from saveUserDrinks function
+var displayDrinkResults = function() {
 
     console.log(drinkResults);
 
     // display on page
     var olEl = document.getElementById("user-results");
-    olEl.textContent = ""; //
+    olEl.textContent = "";
 
 
     drinkResults.forEach(function ({
         zipCode,
         drink
     }) {
-        console.log(zipCode); // ask about this in class 
+        console.log(zipCode);
         // create li tag for each item
         var liEl = document.createElement("li");
         liEl.textContent = drink + " & " + zipCode;
@@ -93,7 +91,7 @@ function displayDrinkResults() {
 
 };
 
-//drink name and zip code functions
+//drink name and zip code API call
 var getNamedCocktail = function () {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
         .then(response => response.json())
@@ -104,9 +102,7 @@ var getNamedCocktail = function () {
 getNamedCocktail();
 
 
-
-
-//get random drinks
+//get random drinks API call
 var getRandomCocktail = function () {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
         .then(response => response.json())
@@ -138,15 +134,9 @@ var getRandomCocktail = function () {
 
 
 
-function displayRandomCocktail(cocktail) {
+var displayRandomCocktail = function (cocktail) {
     console.log(cocktail)
-    // console.log(cocktail.drinks[0]);
-    // console.log(cocktail.drinks[0].strIngredient1 + cocktail.drinks[0].strMeasure1);
-    // console.log(cocktail.drinks[0].strIngredient2 + cocktail.drinks[0].strMeasure2);
-    // console.log(cocktail.drinks[0].strIngredient3 + cocktail.drinks[0].strMeasure3);
 
-    // console.log(randomDrinkData.strInstructions);
-    //var randomDrinkData = cocktail.drinks[0];
     //section or title
     let drinkSection = document.querySelector('#drink-section');
     drinkSection.innerHTML = "";
@@ -154,55 +144,26 @@ function displayRandomCocktail(cocktail) {
     drinkName.className = "drink-name"
     drinkName.innerHTML = cocktail.drinkName;
     drinkSection.appendChild(drinkName);
+
     // image 
     let img = document.createElement('img');
     img.src = cocktail.thumbnailImage;
     img.setAttribute("class", "randomDrinkImg");
     drinkSection.appendChild(img);
 
-
-
-
-
-    // for (let i = 1; i < 16; i++) {
-    //     // if (randomDrinkData['strIngredient'] == null || randomDrinkData['strIngredient'] == '') {
-    //     //     break;
-    //     // }
-
-
-    // let ingredient = document.querySelector('#drink-ingredient');
-    // let drinkIngredient = document.createElement('li');
-    // ingredient.innerHTML = randomDrinkData.strIngredient1;
-    // drinkSection.appendChild(drinkIngredient);
-
-
-    // if (randomDrinkData.strIngredient1) {
-
-    //     drinkSection.appendChild(randomDrinkData.strIngredient1);
-    // // }
-    // // if (randomDrinkData.strIngredient2 != null) {
-    // //     drinkSection.appendChild(randomDrinkData.strIngredient2);
-    // // }
-    // // if (randomDrinkData.strIngredient3 != null) {
-    // //     drinkSection.appendChild(randomDrinkData.strIngredient3);
-    // // }
-    // // if (randomDrinkData.strIngredient4 != null) {
-    // //     drinkSection.appendChild(randomDrinkData.strIngredient4);
-    // // }
-    // // if (randomDrinkData.strIngredient5 != null) {
-    // //     drinkSection.appendChild(randomDrinkData.strIngredient5);
-    // // }
-
+    //ingredients
     var ingredientsDiv = document.querySelector('#drink-ingredients');
     ingredientsDiv.innerHTML = "";
-    cocktail.ingredients.forEach(({name, measure}) => {
+    cocktail.ingredients.forEach(({
+        name,
+        measure
+    }) => {
         //drink ingredient 
         var drinkIngredient = document.createElement('div');
         drinkIngredient.innerHTML = measure + " - " + name;
         ingredientsDiv.appendChild(drinkIngredient);
-    })
+    });
 
-    // }
 
     //drink instructions 
     let instructions = document.querySelector('#drink-instructions');
