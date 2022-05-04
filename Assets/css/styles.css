@@ -46,7 +46,7 @@ header {
 }
 
 /* buttons */
-#getMyDrinkSubmit {
+#getMyDrinkSubmit, #btnClear {
     margin: 1px;
 
 }
@@ -80,7 +80,7 @@ button,
 #modal-confirm-yes,
 #modal-confirm-no,
 #getRandomDrinkSubmit,
-#getMyDrinkSubmit {
+#getMyDrinkSubmit, #btnClear {
     align-self: center;
     background-color: #FFFDF0;
     background-image: none;
@@ -112,7 +112,7 @@ button,
 }
 
 #getMyDrinkSubmit,
-#getRandomDrinkSubmit {
+#getRandomDrinkSubmit, #btnClear {
     font-size: 1.5rem;
 }
 
@@ -120,7 +120,7 @@ button:hover,
 #modal-confirm-yes:hover,
 #modal-confirm-no:hover,
 #getRandomDrinkSubmit:hover,
-#getMyDrinkSubmit:hover {
+#getMyDrinkSubmit:hover, #btnClear:hover {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
     transform: translate3d(0, 2px, 0);
 }
@@ -129,7 +129,7 @@ button:focus,
 #modal-confirm-yes:focus,
 #modal-confirm-no:focus,
 #getRandomDrinkSubmit:focus,
-#getMyDrinkSubmit:focus {
+#getMyDrinkSubmit:focus, #btnClear:focus {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
@@ -177,7 +177,10 @@ button:focus,
     box-shadow: 3px 8px 5px rgba(0, 0, 0, .5);
 }
 
-
+/*Kitten Text */
+#minor-text{
+    float:right;
+}
 /* image*/
 .randomDrinkImg,
 .namedDrinkImg {
@@ -185,9 +188,10 @@ button:focus,
 
 }
 .random-kitten {
+    float: right;
     max-width: 100%;
     height: auto;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .co-photo2 {

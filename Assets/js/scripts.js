@@ -2,6 +2,7 @@
 
 var modalEL = document.querySelector('#modal-buttons');
 var drinkBodyEL = document.querySelector('#drink-Body');
+var minorTextEl = document.querySelector('#minor-text');
 
 //age confirmation screen and buttons
 modalEL.addEventListener("click", function (event) {
@@ -26,11 +27,13 @@ modalEL.addEventListener("click", function (event) {
                 modalEL.setAttribute("class", "result hide");
                 //api call for Random Kitten Generator 
                 var imgEL = document.createElement('img');
-                imgEL.className = "random-kitten";
-                var randomNumber = Math.floor(Math.random() * 400);
+                // imgEL.className = "random-kitten";
+                var randomNumber = Math.floor(Math.random() * 450) + 200;
                 // generate random number and then replace the 
-                imgEL.src = "https://placekitten.com/"+randomNumber+"/300";
+                imgEL.src = "https://placekitten.com/" + randomNumber + "/300";
                 document.body.appendChild(imgEL);
+                document.body.appendChild(minorTextEl)
+                minorTextEl.removeAttribute("class");
             }, 1000);
             // document.location.href = "https://www.randomkittengenerator.com/";
 
@@ -163,20 +166,20 @@ var getRandomCocktail = function () {
 
 // insult API
 
-var getInsult = function () {
-    fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json', {
-            mode: 'no-cors'
-        })
-        .then(response => response.json())
-        .then(data => data.insults[0])
-        .then(insult => {
-            console.log(insult);
+// var getInsult = function () {
+//     fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json', {
+//             mode: 'no-cors'
+//         })
+//         .then(response => response.json())
+//         .then(data => data.insults[0])
+//         .then(insult => {
+//             console.log(insult);
 
-        })
+//         })
 
 
-};
-getInsult();
+// };
+// getInsult();
 
 
 
@@ -186,15 +189,15 @@ getInsult();
 var displayNamedCocktail = function (cocktail) {
     //section or title
     console.log('Describe cocktail name', cocktail);
-    let drinkSectionEL = document.querySelector('#named-cocktail-section');
+    var drinkSectionEL = document.querySelector('#named-cocktail-section');
     drinkSectionEL.innerHTML = "";
-    let drinkNameEL = document.createElement('h2');
+    var drinkNameEL = document.createElement('h2');
     drinkNameEL.className = "drink-name";
     drinkNameEL.innerHTML = cocktail.drinkName;
     drinkSectionEL.appendChild(drinkNameEL);
 
     // image 
-    let img = document.createElement('img');
+    var img = document.createElement('img');
     img.src = cocktail.thumbnailImage;
     img.setAttribute("class", "namedDrinkImg");
     drinkSectionEL.appendChild(img);
@@ -213,9 +216,9 @@ var displayNamedCocktail = function (cocktail) {
     });
 
     //drink instructions 
-    let instructionsEL = document.querySelector('#named-drink-instructions');
+    var instructionsEL = document.querySelector('#named-drink-instructions');
     instructionsEL.innerHTML = "";
-    let drinkInstructionsEL = document.createElement('div');
+    var drinkInstructionsEL = document.createElement('div');
     instructionsEL.innerHTML = cocktail.instructions;
     console.log(cocktail.instructions);
     drinkSectionEL.appendChild(drinkInstructionsEL);
@@ -267,10 +270,28 @@ var displayRandomCocktail = function (cocktail) {
 };
 
 
-//Date
-var date =  function() {
-    var datToday = new Date();
-    var strDate = datToday.getMonth() + 1 + "/" + datToday.getDate() + "/" + datToday.getFullYear();
-    var currentDate = querySelector('#currentDay');
-    currentDate.textContent = "<br>The current date is: ", strDate;
-};
+// //Date
+// var date = function () {
+//     var datToday = new Date();
+//     var strDate = datToday.getMonth() + 1 + "/" + datToday.getDate() + "/" + datToday.getFullYear();
+//     var currentDate = querySelector('#currentDay');
+//     currentDate.textContent = "<br>The current date is: ", strDate;
+// };
+
+//clear local storage
+document.getElementById("btnClear").onclick = function () {
+    var drinkResultsEL = document.querySelector('#user-results');
+    var drinkSectionEL = document.querySelector('#named-cocktail-section');
+    var ingredientsDivEL = document.querySelector('#named-drink-ingredients');
+    var instructionsEL = document.querySelector('#named-drink-instructions');
+    drinkResultsEL.textContent = "";
+    drinkSectionEL.textContent="";
+    ingredientsDivEL.textContent="";
+    instructionsEL.textContent="";
+    localStorage.removeItem("userCustomDrink");
+    console.log("testing button click");
+    drinkResultsEL.textContent = "Previous drinks entered have been Cleared!";
+
+
+
+}
