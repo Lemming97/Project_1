@@ -91,10 +91,10 @@ var displayDrinkResults = function () {
 
 };
 
-//drink name and zip code API call
+//drink name inputted
 var getNamedCocktail = function () {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink)
-    .then(response => response.json())
+        .then(response => response.json())
         .then(data => data.drinks[0])
         .then(cocktail => {
             console.log(cocktail);
@@ -120,6 +120,75 @@ var getNamedCocktail = function () {
         })
         .then(cocktail => displayNamedCocktail(cocktail));
 };
+
+//get random drinks API call
+var getRandomCocktail = function () {
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+        .then(response => response.json())
+        .then(data => data.drinks[0])
+        .then(cocktail => {
+            console.log(cocktail);
+            // strIngredientN
+            // strMeasureN
+            var ingredients = [];
+            for (var i = 1; i <= 15; i++) {
+                var ingredientName = cocktail["strIngredient" + i];
+                var ingredientMeasure = cocktail["strMeasure" + i];
+                if (ingredientName !== null) {
+                    ingredients.push({
+                        name: ingredientName,
+                        measure: ingredientMeasure,
+                    })
+                }
+            }
+            return {
+                drinkName: cocktail.strDrink,
+                thumbnailImage: cocktail.strDrinkThumb,
+                instructions: cocktail.strInstructions,
+                ingredients,
+            }
+        })
+        .then(cocktail => displayRandomCocktail(cocktail));
+
+};
+
+//insult API
+
+var getInsult = function () {
+    fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json', {mode: 'no-cors'})
+        .then(response => response.json())
+        .then(data => data.insults[0])
+        .then(insult => {
+        //     console.log(insult);
+        //     // // strIngredientN
+        //     // // strMeasureN
+        //     var ingredients = [];
+        //     for (var i = 1; i <= 15; i++) {
+        //         var ingredientName = cocktail["strIngredient" + i];
+        //         var ingredientMeasure = cocktail["strMeasure" + i];
+        //         if (ingredientName !== null) {
+        //             ingredients.push({
+        //                 name: ingredientName,
+        //                 measure: ingredientMeasure,
+        //             })
+        //         }
+        //     }
+        //     return {
+        //         drinkName: cocktail.strDrink,
+        //         thumbnailImage: cocktail.strDrinkThumb,
+        //         instructions: cocktail.strInstructions,
+        //         ingredients,
+        //     }
+        // })
+
+
+};
+getInsult();
+
+
+
+//Display results functions
+
 
 var displayNamedCocktail = function () {
     //section or title
@@ -159,38 +228,6 @@ var displayNamedCocktail = function () {
 
 
 };
-
-
-//get random drinks API call
-var getRandomCocktail = function () {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-        .then(response => response.json())
-        .then(data => data.drinks[0])
-        .then(cocktail => {
-            console.log(cocktail);
-            // strIngredientN
-            // strMeasureN
-            var ingredients = [];
-            for (var i = 1; i <= 15; i++) {
-                var ingredientName = cocktail["strIngredient" + i];
-                var ingredientMeasure = cocktail["strMeasure" + i];
-                if (ingredientName !== null) {
-                    ingredients.push({
-                        name: ingredientName,
-                        measure: ingredientMeasure,
-                    })
-                }
-            }
-            return {
-                drinkName: cocktail.strDrink,
-                thumbnailImage: cocktail.strDrinkThumb,
-                instructions: cocktail.strInstructions,
-                ingredients,
-            }
-        })
-        .then(cocktail => displayRandomCocktail(cocktail));
-};
-
 
 
 var displayRandomCocktail = function (cocktail) {
