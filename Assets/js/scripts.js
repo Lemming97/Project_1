@@ -24,8 +24,15 @@ modalEL.addEventListener("click", function (event) {
             modalEL.setAttribute("style", "font-size:35px; text-align:center;");
             setTimeout(function () {
                 modalEL.setAttribute("class", "result hide");
+                //api call for Random Kitten Generator 
+                var imgEL = document.createElement('img');
+                imgEL.className = "random-kitten";
+                var randomNumber = Math.floor(Math.random() * 400);
+                // generate random number and then replace the 
+                imgEL.src = "https://placekitten.com/"+randomNumber+"/300";
+                document.body.appendChild(imgEL);
             }, 1000);
-            document.location.href = "https://www.randomkittengenerator.com/";
+            // document.location.href = "https://www.randomkittengenerator.com/";
 
         }
     } else {
@@ -80,7 +87,7 @@ var displayDrinkResults = function () {
         zipCode,
         drink
     }) {
-        console.log(zipCode);
+        // console.log(zipCode);
         // create li tag for each item
         var liEl = document.createElement("li");
         liEl.textContent = drink + " & " + zipCode;
@@ -88,12 +95,14 @@ var displayDrinkResults = function () {
 
 
     });
+    getNamedCocktail();
 
 };
 
 //drink name inputted
 var getNamedCocktail = function () {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink)
+    var userDrinkInput = drinkInputEL.value.trim();
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + userDrinkInput)
         .then(response => response.json())
         .then(data => data.drinks[0])
         .then(cocktail => {
@@ -152,7 +161,7 @@ var getRandomCocktail = function () {
 
 };
 
-//insult API
+// insult API
 
 var getInsult = function () {
     fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json', {
@@ -174,41 +183,42 @@ getInsult();
 //Display results functions
 
 
-var displayNamedCocktail = function () {
+var displayNamedCocktail = function (cocktail) {
     //section or title
-    let drinkSection2 = document.querySelector('#named-cocktail-section');
-    drinkSection2.innerHTML = "";
-    let drinkName2 = document.createElement('h2');
-    drinkName2.className = "drink-name"
-    drinkName2.innerHTML = cocktail.drinkName2;
-    drinkSection2.appendChild(drinkName2);
+    console.log('Describe cocktail name', cocktail);
+    let drinkSectionEL = document.querySelector('#named-cocktail-section');
+    drinkSectionEL.innerHTML = "";
+    let drinkNameEL = document.createElement('h2');
+    drinkNameEL.className = "drink-name";
+    drinkNameEL.innerHTML = cocktail.drinkName;
+    drinkSectionEL.appendChild(drinkNameEL);
 
     // image 
     let img = document.createElement('img');
     img.src = cocktail.thumbnailImage;
     img.setAttribute("class", "namedDrinkImg");
-    drinkSection2.appendChild(img);
+    drinkSectionEL.appendChild(img);
 
     //ingredients
-    var ingredientsDiv2 = document.querySelector('#named-drink-ingredients');
-    ingredientsDiv2.innerHTML = "";
+    var ingredientsDivEL = document.querySelector('#named-drink-ingredients');
+    ingredientsDivEL.innerHTML = "";
     cocktail.ingredients.forEach(({
         name,
         measure
     }) => {
         //drink ingredient 
-        var drinkIngredient2 = document.createElement('div');
-        drinkIngredient2.innerHTML = measure + " - " + name;
-        ingredientsDiv2.appendChild(drinkIngredient2);
+        var drinkIngredientEL = document.createElement('div');
+        drinkIngredientEL.innerHTML = measure + " - " + name;
+        ingredientsDivEL.appendChild(drinkIngredientEL);
     });
 
     //drink instructions 
-    let instructions2 = document.querySelector('#named-drink-instructions');
-    instructions2.innerHTML = "";
-    let drinkInstructions2 = document.createElement('div');
-    instructions2.innerHTML = cocktail.instructions;
+    let instructionsEL = document.querySelector('#named-drink-instructions');
+    instructionsEL.innerHTML = "";
+    let drinkInstructionsEL = document.createElement('div');
+    instructionsEL.innerHTML = cocktail.instructions;
     console.log(cocktail.instructions);
-    drinkSection2.appendChild(drinkInstructions2);
+    drinkSectionEL.appendChild(drinkInstructionsEL);
 
 
 };
@@ -221,7 +231,7 @@ var displayRandomCocktail = function (cocktail) {
     let drinkSection = document.querySelector('#drink-section');
     drinkSection.innerHTML = "";
     let drinkName = document.createElement('h2');
-    drinkName.className = "drink-name"
+    drinkName.className = "drink-name";
     drinkName.innerHTML = cocktail.drinkName;
     drinkSection.appendChild(drinkName);
 

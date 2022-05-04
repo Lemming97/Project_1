@@ -184,6 +184,11 @@ button:focus,
     width: 100%;
 
 }
+.random-kitten {
+    width: auto;
+    height: auto;
+    align-items: center;
+}
 
 .co-photo2 {
 
