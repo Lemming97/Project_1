@@ -255,3 +255,11 @@ var displayRandomCocktail = function (cocktail) {
     console.log(cocktail.instructions);
     drinkSection.appendChild(drinkInstructions);
 };
+
+
+//Date
+function date() {
+    var datToday = new Date();
+    var strDate = datToday.getMonth() + 1 + "/" + datToday.getDate() + "/" + datToday.getFullYear();
+    document.write("<br>The current date is: ", strDate);
+}

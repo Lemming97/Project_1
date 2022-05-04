@@ -44,10 +44,10 @@ h1 {
 
 
 /* buttons */
- #getMyDrinkSubmit {
-    margin: 155px;
+#getMyDrinkSubmit {
+    margin: 1px;
 
-} 
+}
 
 
 
@@ -67,14 +67,18 @@ h1 {
     font-size: 250px;
     justify-content: space-between;
     font-size: 2rem;
-    
+
 
 }
 
 
 
 /* CSS */
-button,#modal-confirm-yes, #modal-confirm-no, #getRandomDrinkSubmit, #getMyDrinkSubmit{
+button,
+#modal-confirm-yes,
+#modal-confirm-no,
+#getRandomDrinkSubmit,
+#getMyDrinkSubmit {
     align-self: center;
     background-color: #FFFDF0;
     background-image: none;
@@ -104,27 +108,40 @@ button,#modal-confirm-yes, #modal-confirm-no, #getRandomDrinkSubmit, #getMyDrink
     -webkit-user-select: none;
     touch-action: manipulation;
 }
-#getMyDrinkSubmit, #getRandomDrinkSubmit {
+
+#getMyDrinkSubmit,
+#getRandomDrinkSubmit {
     font-size: 1.5rem;
 }
 
-button:hover,#modal-confirm-yes:hover, #modal-confirm-no:hover, #getRandomDrinkSubmit:hover,#getMyDrinkSubmit:hover {
+button:hover,
+#modal-confirm-yes:hover,
+#modal-confirm-no:hover,
+#getRandomDrinkSubmit:hover,
+#getMyDrinkSubmit:hover {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
     transform: translate3d(0, 2px, 0);
 }
 
-button:focus,#modal-confirm-yes:focus, #modal-confirm-no:focus, #getRandomDrinkSubmit:focus, #getMyDrinkSubmit:focus {
+button:focus,
+#modal-confirm-yes:focus,
+#modal-confirm-no:focus,
+#getRandomDrinkSubmit:focus,
+#getMyDrinkSubmit:focus {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
 /*body section*/
-#user-results{
+#user-results {
     font-size: 25px;
 }
-#drink-ingredients, #drink-instructions{
-font-weight: normal;
+
+#drink-ingredients,
+#drink-instructions {
+    font-weight: normal;
 }
-#drink-section > h2{
+
+#drink-section>h2 {
     padding: 10px;
 }
 
@@ -175,6 +192,15 @@ font-weight: normal;
     margin: 10px 120px 22px 15px;
     border: 1px black solid;
     box-shadow: 4px 7px 4px rgba(0, 0, 0, .5);
+}
+
+/* Styles for Footer */
+footer {
+    margin-top: 100px;
+    font-family: 'Noto Serif JP', serif;
+    text-align: center;
+    /* font-size: 50%; */
+    clear: left;
 }
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
