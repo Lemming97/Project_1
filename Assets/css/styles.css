@@ -198,6 +198,17 @@ button:focus,
     box-shadow: 4px 7px 4px rgba(0, 0, 0, .5);
 
 }
+#banner{
+    /* width: auto; */
+    height: 250px;
+    margin: 10px 120px 22px 15px;
+    border: 1px black solid;
+    box-shadow: 4px 7px 4px rgba(0, 0, 0, .5);
+}
+.hero-img{
+
+}
+
 
 .co-photo3 {
 
