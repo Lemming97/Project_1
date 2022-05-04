@@ -155,31 +155,15 @@ var getRandomCocktail = function () {
 //insult API
 
 var getInsult = function () {
-    fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json', {mode: 'no-cors'})
+    fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json', {
+            mode: 'no-cors'
+        })
         .then(response => response.json())
         .then(data => data.insults[0])
         .then(insult => {
-        //     console.log(insult);
-        //     // // strIngredientN
-        //     // // strMeasureN
-        //     var ingredients = [];
-        //     for (var i = 1; i <= 15; i++) {
-        //         var ingredientName = cocktail["strIngredient" + i];
-        //         var ingredientMeasure = cocktail["strMeasure" + i];
-        //         if (ingredientName !== null) {
-        //             ingredients.push({
-        //                 name: ingredientName,
-        //                 measure: ingredientMeasure,
-        //             })
-        //         }
-        //     }
-        //     return {
-        //         drinkName: cocktail.strDrink,
-        //         thumbnailImage: cocktail.strDrinkThumb,
-        //         instructions: cocktail.strInstructions,
-        //         ingredients,
-        //     }
-        // })
+            console.log(insult);
+
+        })
 
 
 };
