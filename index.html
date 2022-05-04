@@ -16,85 +16,112 @@
 
 <body>
     <div id="drink-Body" class="hide">
-        <section>
-            <header>
-                <h1>Get Your Drink On!</h1>
-            </header>
-            <p id="intro-text" class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Morbi
-                orci
-                leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.
-            </p>
+        <section class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <header>
+                        <h1>Get Your Drink On!</h1>
+                    </header>
+                    <p id="intro-text" class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit.
+                        Morbi
+                        orci
+                        leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit.
+                        Morbi
+                        orci
+                        leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit.
+                        Morbi
+                        orci
+                        leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.
+                    </p>
+                </div>
+            </div>
         </section>
 
 
-        <section>
-            <section id="description">
-                <div class="row p-1">
-                    <div class="col-6">
-                        <!--Intro text telling the user what to do-->
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget
-                            tristique
-                            et, interdum eget velit. Nulla facilisi.
 
-                        </p>
+        <section class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <!--Intro text telling the user what to do-->
+                    <p class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                        orci leo, ultricies eget
+                        tristique
+                        et, interdum eget velit. Nulla facilisi.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget
+                        tristique
+                        et, interdum eget velit. Nulla facilisi.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget
+                        tristique
+                        et, interdum eget velit. Nulla facilisi.
+
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--User submit form for their drink recipe -->
+        <section class="container">
+
+            <h1>Enter your items here:</h1>
+            <div class="row flex-column justify-content-center align-items-center">
+                <div class="col d-flex justify-content-center align-items-center">
+                    <div class="mx-2">
+                        <label for="YourDrink" class="form-label">Enter Drink name:</label>
+                        <input type="text" name="name" id="drink-name" class="form-control"
+                            placeholder="Filler Drink Name" />
+                    </div>
+                    <div class="mx-2">
+                        <label for="YourZip" class="form-label">Enter Zipcode:</label>
+                        <input type="text" name="name" id="zipcode" class="form-control" placeholder="90001" />
                     </div>
                 </div>
-            </section>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <button type="submit" class="btn btn-primary btn-sm my-2" id="getMyDrinkSubmit"
+                        onclick="saveUserDrinks()">Submit</button>
+                </div>
+            </div>
+            <div class="col-12">&nbsp;
+                <div class="d-flex justify-content-center">
+                    <div id="drink-results">
+                    </div>
 
-            <!--User submit form for their drink recipe -->
-            <section id="drink-form">
-                <fieldset>
-                    <div class="row p-1">
-                        <h2>Enter your items here:</h2><br>
-                        <div class="input-group">
-                            <p>
-                                <label for="YourDrink">Enter Drink name:</label>
-                                <input type="text" name="name" id="drink-name" placeholder="Filler Drink Name" />
+                    <ol id="user-results"></ol>
 
+                </div>
 
-
-                                <label for="YourZip">Enter Zipcode:</label>
-                                <input type="text" name="name" id="zipcode" placeholder="90001" />
-
-
-                                <button type="submit" class="btn btn-primary btn-sm"
-                                    id="getMyDrinkSubmit" onclick="saveUserDrinks()">Submit</button>
-
-                            </p>
-
-                            <div class="wrapper">
-                                <span id="drink-results">
-                                </span>
-                                <ol id="user-results"></ol>
+            </div>
+        </section>
 
 
-                            </div>
+        <!--User submit form for their RANDOM drink recipe -->
+        <section class="container">
+            <div id="random-drink-form">
+
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-12">
+                        <h1>Do you feel lucky?</h1><br>
+                        <div class="random-input-group">
+                            <!-- <label for="YourInitials">Enter Drink name:</label> -->
+                            <!-- <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" /> -->
+                            <button type="submit" class="btn btn-primary btn-sm" id="getRandomDrinkSubmit"
+                                onclick="getRandomCocktail()">Click
+                                Me!</button>
+                            <div id="drink-section"></div>
+                            <div id="drink-ingredients"></div>
+                            <div id="drink-instructions"></div>
                         </div>
                     </div>
-                </fieldset>
-            </section>
-            <!--User submit form for their RANDOM drink recipe -->
-            <section id="drink-form">
-                <fieldset>
-                    <div class="row p-1">
-                        <h2>Do you feel lucky?</h2><br>
-                        <div class="input-group">
-                            <p>
-                                <!-- <label for="YourInitials">Enter Drink name:</label> -->
-                                <!-- <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" /> -->
-                                <button type="submit" class="btn btn-primary btn-sm" id="getRandomDrinkSubmit">Click
-                                    Me!</button>
-
-                            </p>
-                        </div>
-                    </div>
-                </fieldset>
-            </section>
+                </div>
+            </div>
+        </section>
+    </div>
 
 
-            <!--Display Name of inputted Drink the user has submitted and nearest location -->
 
+    <!--Display Name of inputted Drink the user has submitted and nearest location -->
 
 
 
