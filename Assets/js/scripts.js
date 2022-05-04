@@ -240,6 +240,7 @@ var displayRandomCocktail = function (cocktail) {
     }) => {
         //drink ingredient 
         var drinkIngredient = document.createElement('div');
+        drinkIngredient.className = "dr-ingredient";
         drinkIngredient.innerHTML = measure + " - " + name;
         ingredientsDiv.appendChild(drinkIngredient);
     });
@@ -248,6 +249,7 @@ var displayRandomCocktail = function (cocktail) {
     //drink instructions 
     let instructions = document.querySelector('#drink-instructions');
     instructions.innerHTML = "";
+    instructions.className = "dr-instructions";
     let drinkInstructions = document.createElement('div');
     instructions.innerHTML = cocktail.instructions;
     console.log(cocktail.instructions);
