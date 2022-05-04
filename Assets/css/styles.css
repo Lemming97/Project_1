@@ -24,27 +24,46 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-header {}
-
-header h1 {
+header h1,
+h1 {
     font-weight: bold;
     margin: 0;
     font-size: 36px;
     text-align: center;
-    /* color: #0E5259;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
 
+/* buttons */
+#getMyDrinkSubmit {
+    width: auto;
+    font-size: 25px;
+    background-color: #96D6B5;
+    display: flex;
+    border-radius: 12px;
+    padding: 5px;
+    margin-bottom: 5px;
 
+}
 
-header a {}
+#getRandomDrinkSubmit {
+    width: auto;
+    font-size: 25px;
+    align-items: center;
+    padding-left: 350px;
+    background-color: #96D6B5;
+    display: inline-block;
+    border-radius: 12px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
 
-header nav {}
+#getRandomDrinkSubmit:hover,
+#getMyDrinkSubmit:hover {
+    background: #4F705F;
+    color: #D5F2EA;
+    border-radius: 12px;
+    text-shadow: none;
 
-header nav ul {}
-
-/* nav styling */
-nav {}
+}
 
 #modal-buttons {
     display: center;
@@ -56,6 +75,30 @@ nav {}
 
 }
 
+/*body section*/
+/* #random-drink-form {
+    display: block;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    width: auto;
+    padding-left: 350px;
+    align-items: center;
+} */
+#random-drink-form {
+
+    font-weight: bold;
+    margin: 0;
+    display: inline;
+    font-size: 26px;
+    text-align: center;
+}
+
+.random-input-group {
+    margin: 0 auto;
+    width: 350px;
+    align-items: center;
+}
+
 #modal-confirm-yes,
 #modal-confirm-no {
     display: inline-block;
@@ -64,14 +107,15 @@ nav {}
     border-radius: 12px;
     padding: 25px;
     margin-bottom: 5px;
-    /* background-color: #96D6B5; */
 }
 
 
+/* Drink image*/
+.randomDrinkImg, .namedDrinkImg {
+    width: 100%;
 
-/* Hero Style Start */
-
-
-/* intro section */
+}
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+
+@media only screen and (max-width:768px) {}

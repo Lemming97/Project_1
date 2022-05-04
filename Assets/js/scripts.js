@@ -1,19 +1,7 @@
 // start with an empty page with the two buttons to load the page 
 
-//have javascript create the HTML 
-
-
-//1. pop prompting the user to confirm that they are 21 and over
-// if user selects yes they can be directed to the website
-// if user selects no, direct them to a kids oriented website-> thought to build chid friend drink recipes 
-// Need to use modals -> not prompt but would be good to start with prompt first 
-
-// confirm("Are you over the age th 21?");
-
 var modalEL = document.querySelector('#modal-buttons');
 var drinkBodyEL = document.querySelector('#drink-Body');
-// var confirmYes = document.querySelector('#modal-confirm-yes');
-// var confirmNo = document.querySelector('#modal-confirm-no');
 
 //age confirmation screen and buttons
 modalEL.addEventListener("click", function (event) {
@@ -26,6 +14,9 @@ modalEL.addEventListener("click", function (event) {
         if (target.id === "modal-confirm-yes") {
             console.log("yes");
             drinkBodyEL.removeAttribute("class");
+            modalEL.setAttribute("class", "hide");
+
+
 
 
         } else if (target.id === "modal-confirm-no") {
@@ -48,15 +39,16 @@ modalEL.addEventListener("click", function (event) {
 var drinkInputEL = document.querySelector('#drink-name');
 var zipCodeInputEL = document.querySelector('#zipcode');
 
+var drinkResults =
+    JSON.parse(window.localStorage.getItem("drinkResults")) || [];
+
+//set this to an event listener to the button submit button 
 var saveUserDrinks = function () {
     // get value of input box
     var userDrinkInput = drinkInputEL.value.trim();
     var userZipCodeInput = zipCodeInputEL.value.trim();
 
     if (userDrinkInput !== "" && userZipCodeInput !== "") {
-        // get saved scores from local storage, or if not any, set to empty array
-        var drinkResults =
-            JSON.parse(window.localStorage.getItem("drinkResults")) || [];
 
         // format new score object for current user
         var userCustomDrink = {
@@ -66,46 +58,198 @@ var saveUserDrinks = function () {
 
         // save to local storage
         drinkResults.push(userCustomDrink);
-        window.localStorage.setItem("userCustomDrink", JSON.stringify(userCustomDrink));
+        window.localStorage.setItem("userCustomDrink", JSON.stringify(drinkResults));
 
 
     }
+    displayDrinkResults();
+
+};
+
+//display items entered from saveUserDrinks function
+var displayDrinkResults = function () {
+
+    console.log(drinkResults);
+
+    // display on page
+    var olEl = document.getElementById("user-results");
+    olEl.textContent = "";
+
+
+    drinkResults.forEach(function ({
+        zipCode,
+        drink
+    }) {
+        console.log(zipCode);
+        // create li tag for each item
+        var liEl = document.createElement("li");
+        liEl.textContent = drink + " & " + zipCode;
+        olEl.appendChild(liEl);
+
+
+    });
+
+};
+
+//drink name inputted
+var getNamedCocktail = function () {
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink)
+        .then(response => response.json())
+        .then(data => data.drinks[0])
+        .then(cocktail => {
+            console.log(cocktail);
+            // strIngredientN
+            // strMeasureN
+            var ingredients = [];
+            for (var i = 1; i <= 15; i++) {
+                var ingredientName = cocktail["strIngredient" + i];
+                var ingredientMeasure = cocktail["strMeasure" + i];
+                if (ingredientName !== null) {
+                    ingredients.push({
+                        name: ingredientName,
+                        measure: ingredientMeasure,
+                    })
+                }
+            }
+            return {
+                drinkName: cocktail.strDrink,
+                thumbnailImage: cocktail.strDrinkThumb,
+                instructions: cocktail.strInstructions,
+                ingredients,
+            }
+        })
+        .then(cocktail => displayNamedCocktail(cocktail));
+};
+
+//get random drinks API call
+var getRandomCocktail = function () {
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+        .then(response => response.json())
+        .then(data => data.drinks[0])
+        .then(cocktail => {
+            console.log(cocktail);
+            // strIngredientN
+            // strMeasureN
+            var ingredients = [];
+            for (var i = 1; i <= 15; i++) {
+                var ingredientName = cocktail["strIngredient" + i];
+                var ingredientMeasure = cocktail["strMeasure" + i];
+                if (ingredientName !== null) {
+                    ingredients.push({
+                        name: ingredientName,
+                        measure: ingredientMeasure,
+                    })
+                }
+            }
+            return {
+                drinkName: cocktail.strDrink,
+                thumbnailImage: cocktail.strDrinkThumb,
+                instructions: cocktail.strInstructions,
+                ingredients,
+            }
+        })
+        .then(cocktail => displayRandomCocktail(cocktail));
+
+};
+
+//insult API
+
+var getInsult = function () {
+    fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json', {
+            mode: 'no-cors'
+        })
+        .then(response => response.json())
+        .then(data => data.insults[0])
+        .then(insult => {
+            console.log(insult);
+
+        })
+
+
+};
+getInsult();
+
+
+
+//Display results functions
+
+
+var displayNamedCocktail = function () {
+    //section or title
+    let drinkSection2 = document.querySelector('#named-cocktail-section');
+    drinkSection2.innerHTML = "";
+    let drinkName2 = document.createElement('h2');
+    drinkName2.className = "drink-name"
+    drinkName2.innerHTML = cocktail.drinkName2;
+    drinkSection2.appendChild(drinkName2);
+
+    // image 
+    let img = document.createElement('img');
+    img.src = cocktail.thumbnailImage;
+    img.setAttribute("class", "namedDrinkImg");
+    drinkSection2.appendChild(img);
+
+    //ingredients
+    var ingredientsDiv2 = document.querySelector('#named-drink-ingredients');
+    ingredientsDiv2.innerHTML = "";
+    cocktail.ingredients.forEach(({
+        name,
+        measure
+    }) => {
+        //drink ingredient 
+        var drinkIngredient2 = document.createElement('div');
+        drinkIngredient2.innerHTML = measure + " - " + name;
+        ingredientsDiv2.appendChild(drinkIngredient2);
+    });
+
+    //drink instructions 
+    let instructions2 = document.querySelector('#named-drink-instructions');
+    instructions2.innerHTML = "";
+    let drinkInstructions2 = document.createElement('div');
+    instructions2.innerHTML = cocktail.instructions;
+    console.log(cocktail.instructions);
+    drinkSection2.appendChild(drinkInstructions2);
 
 
 };
 
 
-function displayDrinkResults() {
+var displayRandomCocktail = function (cocktail) {
+    console.log(cocktail)
 
+    //section or title
+    let drinkSection = document.querySelector('#drink-section');
+    drinkSection.innerHTML = "";
+    let drinkName = document.createElement('h2');
+    drinkName.className = "drink-name"
+    drinkName.innerHTML = cocktail.drinkName;
+    drinkSection.appendChild(drinkName);
 
-    // either get scores from local storage or set to empty array
-    var drinkResults = JSON.parse(window.localStorage.getItem("userDrinkInput")) || [];
+    // image 
+    let img = document.createElement('img');
+    img.src = cocktail.thumbnailImage;
+    img.setAttribute("class", "randomDrinkImg");
+    drinkSection.appendChild(img);
 
-   
-
-    drinkResults.forEach(function (drink, zipCode) {
-        console.log(drink, zipCode); // ask about this in class 
-        // create li tag for each item
-        var liEl = document.createElement("li");
-        liEl.textContent = drink.userDrinkInput + " & " + zipCode.userZipCodeInput;
-
-        // display on page
-        var olEl = document.getElementById("user-results");
-        olEl.appendChild(liEl);
-
+    //ingredients
+    var ingredientsDiv = document.querySelector('#drink-ingredients');
+    ingredientsDiv.innerHTML = "";
+    cocktail.ingredients.forEach(({
+        name,
+        measure
+    }) => {
+        //drink ingredient 
+        var drinkIngredient = document.createElement('div');
+        drinkIngredient.innerHTML = measure + " - " + name;
+        ingredientsDiv.appendChild(drinkIngredient);
     });
-}
-
-// // run function
-displayDrinkResults();
 
 
-
-
-
-
-//2. submitting items to local storage returning them to the page and then displaying the info the user 
-
-//3. api pull
-
-//4. returning data from API 
+    //drink instructions 
+    let instructions = document.querySelector('#drink-instructions');
+    instructions.innerHTML = "";
+    let drinkInstructions = document.createElement('div');
+    instructions.innerHTML = cocktail.instructions;
+    console.log(cocktail.instructions);
+    drinkSection.appendChild(drinkInstructions);
+};
