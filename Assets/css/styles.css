@@ -111,7 +111,7 @@ h1 {
 
 
 /* Drink image*/
-.randomDrinkImg {
+.randomDrinkImg, .namedDrinkImg {
     width: 100%;
 
 }

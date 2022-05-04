@@ -67,7 +67,7 @@ var saveUserDrinks = function () {
 };
 
 //display items entered from saveUserDrinks function
-var displayDrinkResults = function() {
+var displayDrinkResults = function () {
 
     console.log(drinkResults);
 
@@ -93,13 +93,72 @@ var displayDrinkResults = function() {
 
 //drink name and zip code API call
 var getNamedCocktail = function () {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-        .then(response => response.json())
-        .then(data => console.log(data));
-
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink)
+    .then(response => response.json())
+        .then(data => data.drinks[0])
+        .then(cocktail => {
+            console.log(cocktail);
+            // strIngredientN
+            // strMeasureN
+            var ingredients = [];
+            for (var i = 1; i <= 15; i++) {
+                var ingredientName = cocktail["strIngredient" + i];
+                var ingredientMeasure = cocktail["strMeasure" + i];
+                if (ingredientName !== null) {
+                    ingredients.push({
+                        name: ingredientName,
+                        measure: ingredientMeasure,
+                    })
+                }
+            }
+            return {
+                drinkName: cocktail.strDrink,
+                thumbnailImage: cocktail.strDrinkThumb,
+                instructions: cocktail.strInstructions,
+                ingredients,
+            }
+        })
+        .then(cocktail => displayNamedCocktail(cocktail));
 };
 
-getNamedCocktail();
+var displayNamedCocktail = function () {
+    //section or title
+    let drinkSection2 = document.querySelector('#named-cocktail-section');
+    drinkSection2.innerHTML = "";
+    let drinkName2 = document.createElement('h2');
+    drinkName2.className = "drink-name"
+    drinkName2.innerHTML = cocktail.drinkName2;
+    drinkSection2.appendChild(drinkName2);
+
+    // image 
+    let img = document.createElement('img');
+    img.src = cocktail.thumbnailImage;
+    img.setAttribute("class", "namedDrinkImg");
+    drinkSection2.appendChild(img);
+
+    //ingredients
+    var ingredientsDiv2 = document.querySelector('#named-drink-ingredients');
+    ingredientsDiv2.innerHTML = "";
+    cocktail.ingredients.forEach(({
+        name,
+        measure
+    }) => {
+        //drink ingredient 
+        var drinkIngredient2 = document.createElement('div');
+        drinkIngredient2.innerHTML = measure + " - " + name;
+        ingredientsDiv2.appendChild(drinkIngredient2);
+    });
+
+    //drink instructions 
+    let instructions2 = document.querySelector('#named-drink-instructions');
+    instructions2.innerHTML = "";
+    let drinkInstructions2 = document.createElement('div');
+    instructions2.innerHTML = cocktail.instructions;
+    console.log(cocktail.instructions);
+    drinkSection2.appendChild(drinkInstructions2);
+
+
+};
 
 
 //get random drinks API call
