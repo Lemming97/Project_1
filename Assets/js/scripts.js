@@ -268,8 +268,9 @@ var displayRandomCocktail = function (cocktail) {
 
 
 //Date
-function date() {
+var date =  function() {
     var datToday = new Date();
     var strDate = datToday.getMonth() + 1 + "/" + datToday.getDate() + "/" + datToday.getFullYear();
-    document.write("<br>The current date is: ", strDate);
-}
+    var currentDate = querySelector('#currentDay');
+    currentDate.textContent = "<br>The current date is: ", strDate;
+};
