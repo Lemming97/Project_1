@@ -134,21 +134,16 @@ displayDrinkResults();
 
 //4. returning data from API 
 
-//Need to link parameters
-//run below code with onsen. We should be able to adjust onsen for linking to random button like last night.
-console.info('cocktails.js loaded');
-// loads cocktail on page opening instead of button call
-document.addEventListener('prechange', function (event) {
-  document.querySelector('ons-toolbar .center')
-    .innerHTML = event.tabItem.getAttribute('label');
-});
-// pulls random cocktail
+var generateBtn = document.getElementById("random");
+generateBtn.addEventListener("click", getRandomCocktail);
+
 function getRandomCocktail() {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
     .then(function (response) {
       if (response.status !== 200) {
         console.log(
-          "Looks like there was a problem. Status Code: " + response.status);
+          "Looks like there was a problem. Status Code: " + response.status
+        );
         return;
       }
 
@@ -156,183 +151,120 @@ function getRandomCocktail() {
       response.json().then(function (data) {
         console.log(data);
         displayRandomCocktail(data);
-
       });
-     }
-    )
+    })
     .catch(function (err) {
-      console.log('Fetch Error :-S', err);
+      console.log("Fetch Error :-S", err);
     });
-  }
-
-getRandomCocktail();
+}
+// getRandomCocktail();
 //displays cocktail
+
 function displayRandomCocktail(cocktail) {
   console.log(cocktail[0]);
 
-  let drinkSection = document.querySelector('#drink-section');
+  let drinkSection = document.querySelector("#drink-section");
 
-  let drinkName = document.createElement('h2');
+  let drinkName = document.createElement("h2");
 
   drinkName.innerHTML = cocktail.drinks[0].strDrink;
 
   drinkSection.appendChild(drinkName);
 
-  let img = document.createElement('img');
+  let img = document.createElement("img");
   img.src = cocktail.drinks[0].strDrinkThumb;
 
   drinkSection.appendChild(img);
 
   for (let i = 1; i < 16; i++) {
-
-    if (cocktail.drinks[0][`strIngredient${i}`] == null || cocktail.drinks[0][`strIngredient${i}`] == '') {
+    if (
+      cocktail.drinks[0][`strIngredient${i}`] === null ||
+      cocktail.drinks[0][`strIngredient${i}`] === ""
+    ) {
       break;
     }
 
-    let ingredient = document.createElement('ons-list-item');
+    let ingredient = document.createElement("list");
     ingredient.innerHTML =
       cocktail.drinks[0][`strMeasure${i}`] +
       ": " +
-      cocktail.drinks[0][`sstrIngredient${i}`];
+      cocktail.drinks[0][`strIngredient${i}`];
 
     drinkSection.appendChild(ingredient);
-
-
   }
-  let card = document.createElement('ons-card');
+  let card = document.createElement("instructions");
   card.innerHTML = cocktail.drinks[0].strInstructions;
 
   drinkSection.appendChild(card);
 }
-// End Random Cocktail Example
+//named Drink need fillable link connection.
 
-//Named Cocktail Query
- document.addEventListener('prechange', function(event) {
-    document.querySelector('ons-toolbar .center')
-        .innerHTML = event.tabItem.getAttribute('label');
-});
+//named drink function
 
-function getNamedCocktail(){
-    fetch("www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
-      .then(function (response) {
-        if (response.status !== 200) {
-          console.log(
-            "Looks like there was a problem. Status Code: " + response.status
-          );
-          return;
-        }
+var generateBtn = document.getElementById("named");
+generateBtn.addEventListener("click", getNamedCocktail);
 
-        // Examine the text in the response
-        response.json().then(function (data) {
-          console.log(data);
-          displayNamedCocktail (data);
+function getNamedCocktail() {
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s= + drink ")
+    .then(function (response) {
+      if (response.status !== 200) {
+        console.log(
+          "Looks like there was a problem. Status Code: " + response.status
+        );
+        return;
+      }
 
-        });
-      })
-      .catch(function (err) {
-        console.log("Fetch Error :-S", err);
+      // Examine the text in the response
+      response.json().then(function (data) {
+        console.log(data);
+        displayNamedCocktail(data);
       });
+    })
+    .catch(function (err) {
+      console.log("Fetch Error :-S", err);
+    });
+}
+
+// getNamedCocktail();
+//displays cocktail
+
+function displayNamedCocktail(cocktail) {
+  console.log(cocktail[0]);
+
+  let drinkSection = document.querySelector("#drink-section");
+
+  let drinkName = document.createElement("h2");
+
+  drinkName.innerHTML = cocktail.drinks[0].strDrink;
+
+  drinkSection.appendChild(drinkName);
+
+  let img = document.createElement("img");
+  img.src = cocktail.drinks[0].strDrinkThumb;
+
+  drinkSection.appendChild(img);
+
+  for (let i = 1; i < 16; i++) {
+    if (
+      cocktail.drinks[0][`strIngredient${i}`] === null ||
+      cocktail.drinks[0][`strIngredient${i}`] === ""
+    ) {
+      break;
     }
-    getNamedCocktail();
 
-    function displaynamedCocktail(cocktail){
-        console.log(cocktail[0]);
+    let ingredient = document.createElement("list");
+    ingredient.innerHTML =
+      cocktail.drinks[0][`strMeasure${i}`] +
+      ": " +
+      cocktail.drinks[0][`strIngredient${i}`];
 
-        let drinkSection = document.querySelector('#drink-section');
+    drinkSection.appendChild(ingredient);
+  }
+  let card = document.createElement("instructions");
+  card.innerHTML = cocktail.drinks[0].strInstructions;
 
-        let drinkName = document.createElement('h2');
-
-        drinkName.innerHTML =cocktail.drinks[0].strDrink;
-
-        drinkSection.appendChild(drinkName);
-
-        let img = document.createElement('img');
-        img.src = cocktail.drinks[0].strDrinkThumb;
-
-        drinkSection.appendChild(img);
-
-    for (let i = 1; i < 16; i++) {
-
-        if (cocktail.drinks[0]['strIngedient${i}'] == null || cocktail.drinks[0]['strIngedient${i}'] == ''){
-            break;
-        }
-
-        let ingredient  = document.createElement('ons-list-item');
-        ingredient.innerHTML =  cocktail.drinks[0]['strMeasure${i}']+ ':' + cocktail.drinks[0]["strIngedient${i}"];
-
-        drinkSection.appendChild(ingredient);
-
-
-    }
-
-
-
-    // location function
-    let card = document.createElement ('ons-card');
-    card.innerHTML = cocktail.drinks[0].strInstructions;
-    
-    drinkSection.appendChild(card3);
-
- document.addEventListener('prechange', function(event) {
-    document.querySelector('ons-toolbar .center')
-        .innerHTML = event.tabItem.getAttribute('label');
-});
-
-function getLiquorLocation(){
-    fetch("www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
-      .then(function (response) {
-        if (response.status !== 200) {
-          console.log(
-            "Looks like there was a problem. Status Code: " + response.status
-          );
-          return;
-        }
-
-        // Examine the text in the response
-        response.json().then(function (data) {
-          console.log(data);
-          displayNamedCocktail (data);
-
-        });
-      })
-      .catch(function (err) {
-        console.log("Fetch Error :-S", err);
-      });
-    }
-    getNamedCocktail();
-
-    function displaynamedCocktail(cocktail){
-        console.log(cocktail[0]);
-
-        let drinkSection = document.querySelector('#drink-section');
-
-        let drinkName = document.createElement('h2');
-
-        drinkName.innerHTML =cocktail.drinks[0].strDrink;
-
-        drinkSection.appendChild(drinkName);
-
-        let img = document.createElement('img');
-        img.src = cocktail.drinks[0].strDrinkThumb;
-
-        drinkSection.appendChild(img);
-
-    for (let i = 1; i < 16; i++) {
-
-        if (cocktail.drinks[0]['strIngedient${i}'] == null || cocktail.drinks[0]['strIngedient${i}'] == ''){
-            break;
-        }
-
-        let ingredient  = document.createElement('ons-list-item');
-        ingredient.innerHTML =  cocktail.drinks[0]['strMeasure${i}']+ ':' + cocktail.drinks[0]["strIngedient${i}"];
-
-        drinkSection.appendChild(ingredient);
-
-    }
-    let card = document.createElement ('ons-card');
-    card.innerHTML = cocktail.drinks[0].strInstructions;
-    
-    drinkSection.appendChild(card2);
+  drinkSection.appendChild(card);
+}
 
 
 
