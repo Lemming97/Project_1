@@ -185,9 +185,9 @@ button:focus,
 
 }
 .random-kitten {
-    width: auto;
+    max-width: 100%;
     height: auto;
-    align-items: center;
+    text-align: center;
 }
 
 .co-photo2 {
@@ -204,9 +204,6 @@ button:focus,
     margin: 10px 120px 22px 15px;
     border: 1px black solid;
     box-shadow: 4px 7px 4px rgba(0, 0, 0, .5);
-}
-.hero-img{
-
 }
 
 
