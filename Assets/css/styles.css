@@ -41,7 +41,9 @@ h1 {
     font-size: 36px;
     text-align: center;
 }
-
+header {
+    padding-top: 15px;
+}
 
 /* buttons */
 #getMyDrinkSubmit {
@@ -167,6 +169,12 @@ button:focus,
 
 .dr-instructions {
     font-size: 20px;
+}
+
+#drink-Body {
+    background-color: #F2F0E4;
+    border: solid 6px #40281A;
+    box-shadow: 3px 8px 5px rgba(0, 0, 0, .5);
 }
 
 
