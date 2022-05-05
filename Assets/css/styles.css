@@ -20,8 +20,8 @@
 
 /* basic stylings */
 body {
-    /* border: solid 10px #40281A;
-    box-shadow: 8px 8px 6px rgba(0, 0, 0, .5); */
+    border: solid 10px #40281A;
+    box-shadow: 8px 8px 6px rgba(0, 0, 0, .5);
     padding: 7vw;
     background-image: url("../images/50335.png");
     background-position: center center;
@@ -68,6 +68,7 @@ header {
 #modal-confirm-yes,
 #modal-confirm-no {
     display: inline-block;
+    font-size: 250px;
     justify-content: space-between;
     font-size: 2rem;
 
@@ -159,13 +160,22 @@ button:focus,
 }
 
 #random-drink-form,
-#named-drink-ingredients {
+#named-drink-ingredients,
+#named-drink-instructions {
 
     margin: 0;
     display: inline;
     text-align: center;
 }
 
+/* #named-drink-instructions {
+    margin: 20px 20px 20px 20px;
+    width: 250px;
+    font-weight: normal;
+    text-align: center;
+    
+   
+} */
 
 .random-input-group {
     margin: 0 auto;
@@ -195,7 +205,7 @@ button:focus,
 }
 
 /* image*/
-.randomDrinkImg {
+.randomDrinkImg  {
     width: 100%;
     height: auto;
 
@@ -204,7 +214,7 @@ button:focus,
 .namedDrinkImg {
     width: 350px;
     height: auto;
-}
+} 
 
 .random-kitten {
     float: right;
@@ -249,7 +259,7 @@ footer {
 }
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
-
+/*test*/
 /* 
 @media only screen and (min-device-width: 414px) {
 
@@ -306,3 +316,5 @@ footer {
         display:inline-flex;
     }
 } */
+
+/* @media only screen and (max-width:768px) {} */
