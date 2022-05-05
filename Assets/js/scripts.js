@@ -183,6 +183,7 @@ var getRandomCocktail = function () {
 
 
 
+
 //Display results functions
 
 
