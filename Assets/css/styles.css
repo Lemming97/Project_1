@@ -41,12 +41,14 @@ h1 {
     font-size: 36px;
     text-align: center;
 }
+
 header {
     padding-top: 15px;
 }
 
 /* buttons */
-#getMyDrinkSubmit, #btnClear {
+#getMyDrinkSubmit,
+#btnClear {
     margin: 1px;
 
 }
@@ -80,7 +82,8 @@ button,
 #modal-confirm-yes,
 #modal-confirm-no,
 #getRandomDrinkSubmit,
-#getMyDrinkSubmit, #btnClear {
+#getMyDrinkSubmit,
+#btnClear {
     align-self: center;
     background-color: #FFFDF0;
     background-image: none;
@@ -112,7 +115,8 @@ button,
 }
 
 #getMyDrinkSubmit,
-#getRandomDrinkSubmit, #btnClear {
+#getRandomDrinkSubmit,
+#btnClear {
     font-size: 1.5rem;
 }
 
@@ -120,7 +124,8 @@ button:hover,
 #modal-confirm-yes:hover,
 #modal-confirm-no:hover,
 #getRandomDrinkSubmit:hover,
-#getMyDrinkSubmit:hover, #btnClear:hover {
+#getMyDrinkSubmit:hover,
+#btnClear:hover {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
     transform: translate3d(0, 2px, 0);
 }
@@ -129,17 +134,19 @@ button:focus,
 #modal-confirm-yes:focus,
 #modal-confirm-no:focus,
 #getRandomDrinkSubmit:focus,
-#getMyDrinkSubmit:focus, #btnClear:focus {
+#getMyDrinkSubmit:focus,
+#btnClear:focus {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
 /*body section*/
 #user-results {
-    font-size: 25px;
+    font-size: 20px;
 }
 
 #drink-ingredients,
-#drink-instructions {
+#drink-instructions,
+#named-drink-ingredients {
     font-weight: normal;
 }
 
@@ -147,15 +154,28 @@ button:focus,
     padding: 10px;
 }
 
-
-#random-drink-form {
-
-    font-weight: bold;
-    margin: 0;
-    display: inline;
-    font-size: 26px;
+#drink-results,
+#named-cocktail-section {
     text-align: center;
 }
+
+#random-drink-form,
+#named-drink-ingredients,
+#named-drink-instructions {
+
+    margin: 0;
+    display: inline;
+    text-align: center;
+}
+
+/* #named-drink-instructions {
+    margin: 20px 20px 20px 20px;
+    width: 250px;
+    font-weight: normal;
+    text-align: center;
+    
+   
+} */
 
 .random-input-group {
     margin: 0 auto;
@@ -169,6 +189,8 @@ button:focus,
 
 .dr-instructions {
     font-size: 20px;
+    font-weight: normal;
+    justify-content: center;
 }
 
 #drink-Body {
@@ -178,15 +200,22 @@ button:focus,
 }
 
 /*Kitten Text */
-#minor-text{
-    float:right;
+#minor-text {
+    float: right;
 }
+
 /* image*/
-.randomDrinkImg,
-.namedDrinkImg {
+.randomDrinkImg  {
     width: 100%;
+    height: auto;
 
 }
+
+.namedDrinkImg {
+    width: 350px;
+    height: auto;
+} 
+
 .random-kitten {
     float: right;
     max-width: 100%;
@@ -202,7 +231,8 @@ button:focus,
     box-shadow: 4px 7px 4px rgba(0, 0, 0, .5);
 
 }
-#banner{
+
+#banner {
     /* width: auto; */
     height: 250px;
     margin: 10px 120px 22px 15px;
