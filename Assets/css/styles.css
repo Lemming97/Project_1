@@ -250,7 +250,7 @@ footer {
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 
-
+/* 
 @media only screen and (min-device-width: 414px) {
 
     #modal-confirm-yes,
@@ -278,7 +278,7 @@ footer {
     padding-right: 10px;
     }
     #named-drink-instructions {
-        /* width: 75%; */
+        /* width: 75%; 
         justify-content: center;
         padding-left: 10px;
         padding-right: 10px;
@@ -305,4 +305,4 @@ footer {
     #modal-buttons > h1 {
         display:inline-flex;
     }
-}
+} */
