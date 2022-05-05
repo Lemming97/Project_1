@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Open+Sans:wght@300;400&display=swap"
         rel="stylesheet">
+        
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Summer Punch</title>
@@ -26,14 +27,9 @@
                 </header>
                 <div class="col-12">
 
-                    <p id="intro-text" class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit.Morbiorcileo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.Lorem ipsum
-                        dolor sit
-                        amet, consectetur adipiscing elit. Morbi,orci,leo, ultricies eget tristique et, interdum eget
-                        velit. <img src="./Assets/images/17816.jpg" class="co-photo3" width="200" height="200"
-                            alt="Bottle Opener icon" />Nulla facilisi.Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit. Morbi,orci eo, ultricies eget tristique et, interdum eget
-                        velit. Nulla facilisi.
+                    <p id="intro-text" class="text-justify p-3 m-3">Much like Wine-Time-Mommy, this well put together exterior is a farce. Impress your friends with a facade of luxury while we know the truth.
+                         <img src="./Assets/images/17816.jpg" class="co-photo3" width="200" height="200"
+                            alt="Bottle Opener icon" />It's time to drip in luxury of fluid based flavors. Pull out some shakers and strainers! It's time for a party, in your mouth! 
                     </p>
                 </div>
             </div>
@@ -45,14 +41,9 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <!--Intro text telling the user what to do-->
-                    <p class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                        orci leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi. Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget
-                        tristique et, interdum eget velit. Nulla facilisi. <img
+                    <p class="text-justify p-3 m-3">Life is too short to have bad drinks! Look at that freaky corkscrew. It's happy because it gets to stab things I bet. Don't stare at it too long. <img
                             src="./Assets/images/streamline-icon-bottle-opener@400x400.PNG" class="co-photo2"
-                            width="200" height="200" alt="Bottle Opener icon" />Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Morbi orci leo, ultricies eget
-                        tristique et, interdum eget velit. Nulla facilisi.
+                            width="200" height="200" alt="Bottle Opener icon" /> Seriously, you don't have time to waste. Get some drinks and insults!
 
 
                     </p>
@@ -63,11 +54,11 @@
         <!--User submit form for their drink recipe -->
         <section class="container named-drink-form">
 
-            <h1>Enter your items here:</h1>
+            <h1>Enter your choice here:</h1>
             <div class="row flex-column justify-content-center align-items-center">
                 <div class="col d-flex justify-content-center align-items-center">
                     <div class="mx-2">
-                        <label for="YourDrink" class="form-label">Enter Drink name:</label>
+                        <label for="YourDrink" class="form-label">Enter Drink Name:</label>
                         <input type="text" name="name" id="drink-name" class="form-control"
                             placeholder="Filler Drink Name" />
                     </div>
@@ -80,7 +71,7 @@
                     &nbsp; <button type="submit" class="btn btn-primary btn-sm my-2" id="getMyDrinkSubmit"
                         onclick="saveUserDrinks()">Submit</button>
 
-                        &nbsp; <button type="submit" class="btn btn-primary btn-sm my-2" id="btnClear">Clear</button>
+                        &nbsp; <button type="submit" class="btn btn-primary btn-sm my-2" id="btnClear">Obfuscate your past</button>
                 </div>
             </div>
             <div class="col-12">&nbsp;
@@ -110,8 +101,8 @@
                             <!-- <label for="YourInitials">Enter Drink name:</label> -->
                             <!-- <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" /> -->
                             <button type="submit" class="btn btn-primary btn-sm" id="getRandomDrinkSubmit"
-                                onclick="getRandomCocktail()">Click
-                                Me!</button>&nbsp;
+                                onclick="getRandomCocktail()">Embrace the Mix!</button>&nbsp;
+                                <span  id="output1"></span><br>
                             <div id="drink-section"></div>&nbsp;
                             <div id="drink-ingredients"></div>
                             <div id="drink-instructions"></div>
@@ -168,9 +159,10 @@
 
             </div>
             <div class="random-kitten">
-            <div id="minor-text" class="hide">Lorem itpat convallis velit.Lorem itpat convallis velit.Lorem itpat convallis velit.Lorem itpat convallis velit. </div>
+            <div id="minor-text" class="hide">Let the Grapes Guide you. It is time for your Liver to have a workout</div>
         </div></div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="./Assets/js/scripts.js"></script>
 </body>
 
