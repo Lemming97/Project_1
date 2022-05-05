@@ -259,7 +259,7 @@ footer {
 }
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
-<<<<<<< HEAD
+
 /*test*/
 /* 
 @media only screen and (min-device-width: 414px) {
@@ -317,7 +317,3 @@ footer {
         display:inline-flex;
     }
 } */
-=======
-
-@media only screen and (max-width:768px) {}
->>>>>>> main
