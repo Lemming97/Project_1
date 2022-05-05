@@ -148,53 +148,7 @@ var getRandomCocktail = function () {
     .then((cocktail) => displayRandomCocktail(cocktail));
 };
 
-// insult API
-// $("button").click(function(){
-//   $.ajax({url: "demo_test.txt", success: function(result){
-//     $("#div1").html(result);
-//   }});
-// });
 
-// $.ajax({
-//     url: pirate.monkeyness.com/api/insult,
-//     dataType: "jsonp")
-// })
-// .done(function (data) {
-
-//      var ParsedObject = JSON.stringify(data);
-//      alert(ParsedObject);
-
-//      }
-//   })
-// };
-// getJSON(
-//   "https://evilinsult.com/generate_insult.php?lang=en&type=json",
-//   function (err, insult) {
-//     if (err != null) {
-//       alert("Something went wrong: " + err);
-//     } else {
-//       console.log(data);
-//       document.getElementById("output1").innerHTML = data;
-//     }
-//   }
-// );
-
-// var getInsult = function () {
-//   fetch("https://evilinsult.com/generate_insult.php?lang=en&type=json", {
-//     mode: "no-cors",
-//   })
-//     .then((response) => {
-//       response.json();
-//       console.log("#####", response.json());
-//     })
-//     .then((data) => {
-//       console.log("@@@@@@@", data);
-//     });}
-//     /* .then((insult) => {
-//       console.log(insult);
-//     });
-// }; */
-// getInsult();
 
 // Display results functions
 
