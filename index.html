@@ -11,90 +11,141 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Sippy-Sippy Till Your Tippy Tippy</title>
+    <title>Summer Punch</title>
 </head>
 
 <body>
     <div id="drink-Body" class="hide">
-        <section>
-            <header>
-                <h1>Get Your Drink On!</h1>
-            </header>
-            <p id="intro-text" class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Morbi
-                orci
-                leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.
-            </p>
+        <section class="container">
+            <div class="row justify-content-center">
+                <header>
+                    <h1>Get Your Drink On!</h1>
+                    <div class="text-center">
+                        <img src="Assets/images/7071083.png" id="banner" class="img-fluid rounded mx-auto d-bloc"
+                            alt="summer punch banner"></div>
+                </header>
+                <div class="col-12">
+
+                    <p id="intro-text" class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit.Morbiorcileo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.Lorem ipsum
+                        dolor sit
+                        amet, consectetur adipiscing elit. Morbi,orci,leo, ultricies eget tristique et, interdum eget
+                        velit. <img src="./Assets/images/17816.jpg" class="co-photo3" width="200" height="200"
+                            alt="Bottle Opener icon" />Nulla facilisi.Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit. Morbi,orci eo, ultricies eget tristique et, interdum eget
+                        velit. Nulla facilisi.
+                    </p>
+                </div>
+            </div>
         </section>
 
 
-        <section>
-            <section id="description">
-                <div class="row p-1">
-                    <div class="col-6">
-                        <!--Intro text telling the user what to do-->
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget
-                            tristique
-                            et, interdum eget velit. Nulla facilisi.
 
-                        </p>
+        <section class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <!--Intro text telling the user what to do-->
+                    <p class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                        orci leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi. Lorem ipsum dolor
+                        sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget
+                        tristique et, interdum eget velit. Nulla facilisi. <img
+                            src="./Assets/images/streamline-icon-bottle-opener@400x400.PNG" class="co-photo2"
+                            width="200" height="200" alt="Bottle Opener icon" />
+                           <!--Insult/Jokes display-->
+                            <div id="setup"> </div>
+                            <div id="delivery"></div> 
+
+
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--User submit form for their drink recipe -->
+        <section class="container named-drink-form">
+
+            <h1>Enter your items here:</h1>
+            <div class="row flex-column justify-content-center align-items-center">
+                <div class="col d-flex justify-content-center align-items-center">
+                    <div class="mx-2">
+                        <label for="YourDrink" class="form-label">Enter Drink name:</label>
+                        <input type="text" name="name" id="drink-name" class="form-control"
+                            placeholder="Filler Drink Name" />
+                    </div>
+                    <div class="mx-2">
+                        <label for="YourZip" class="form-label">Enter Zipcode:</label>
+                        <input type="text" name="name" id="zipcode" class="form-control" placeholder="90001" />
                     </div>
                 </div>
-            </section>
+                <div class="col d-flex justify-content-center align-items-center">
+                    &nbsp; <button type="submit" class="btn btn-primary btn-sm my-2" id="getMyDrinkSubmit"
+                        onclick="saveUserDrinks(), myInsultFetch()">Submit</button>
 
-            <!--User submit form for their drink recipe -->
-            <section id="drink-form">
-                <fieldset>
-                    <div class="row p-1">
-                        <h2>Enter your items here:</h2><br>
-                        <div class="input-group">
-                            <p>
-                                <label for="YourDrink">Enter Drink name:</label>
-                                <input type="text" name="name" id="drink-name" placeholder="Filler Drink Name" />
+                        &nbsp; <button type="submit" class="btn btn-primary btn-sm my-2" id="btnClear">Clear</button>
+                </div>
+            </div>
+            <div class="col-12">&nbsp;
+                <div class="d-flex justify-content-center">
+                    <div id="drink-results">
+                    </div>
 
+                    <ol id="user-results"></ol>
 
+                </div>
+                <div id="named-cocktail-section"></div>
+                <div id="named-drink-ingredients"></div>
+                <div id="named-drink-instructions"></div>
 
-                                <label for="YourZip">Enter Zipcode:</label>
-                                <input type="text" name="name" id="zipcode" placeholder="90001" />
-
-
-                                <button type="submit" class="btn btn-primary btn-sm"
-                                    id="getMyDrinkSubmit" onclick="saveUserDrinks()">Submit</button>
-
-                            </p>
-
-                            <div class="wrapper">
-                                <span id="drink-results">
-                                </span>
-                                <ol id="user-results"></ol>
+            </div>
+        </section>
 
 
-                            </div>
+        <!--User submit form for their RANDOM drink recipe -->
+        <section class="container">
+            <div id="random-drink-form">
+
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-12">
+                        <h1>Do you feel lucky?</h1>
+                        <div class="random-input-group">&nbsp;
+                            <!-- <label for="YourInitials">Enter Drink name:</label> -->
+                            <!-- <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" /> -->
+                            <button type="submit" class="btn btn-primary btn-sm" id="getRandomDrinkSubmit"
+                                onclick="getRandomCocktail(), myInsultFetch()">Click
+                                Me!</button>&nbsp;
+                            <div id="drink-section"></div>&nbsp;
+                            <div id="drink-ingredients"></div>
+                            <div id="drink-instructions"></div>
                         </div>
                     </div>
-                </fieldset>
-            </section>
-            <!--User submit form for their RANDOM drink recipe -->
-            <section id="drink-form">
-                <fieldset>
-                    <div class="row p-1">
-                        <h2>Do you feel lucky?</h2><br>
-                        <div class="input-group">
-                            <p>
-                                <!-- <label for="YourInitials">Enter Drink name:</label> -->
-                                <!-- <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" /> -->
-                                <button type="submit" class="btn btn-primary btn-sm" id="getRandomDrinkSubmit">Click
-                                    Me!</button>
+                </div>
+            </div>
+        </section>
 
-                            </p>
-                        </div>
-                    </div>
-                </fieldset>
-            </section>
+        <div class="container">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+                <!-- <p id="currentDay">
+                    <script>
+                        date();
+                    </script>
+                </p> -->
+                <p class="text-center text-muted">&copy; 2021 Company, Inc</p>
+
+            </footer>
+        </div>
+
+    </div>
 
 
-            <!--Display Name of inputted Drink the user has submitted and nearest location -->
 
+    <!--Display Name of inputted Drink the user has submitted and nearest location -->
 
 
 
@@ -117,57 +168,11 @@
                 <button type="submit" class="btn btn-primary btn-sm" id="modal-confirm-no">No</button>
 
             </div>
-        </div>
+            <div class="random-kitten">
+            <div id="minor-text" class="hide">Lorem itpat convallis velit.Lorem itpat convallis velit.Lorem itpat convallis velit.Lorem itpat convallis velit. </div>
+        </div></div>
     </section>
     <script src="./Assets/js/scripts.js"></script>
 </body>
 
 </html>
-
-<!-- <Mark Build for comparison
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Drink</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.12.0/css/onsenui.css" integrity="sha512-kMQDg+SlREb/cWQuIk1Tx2ElPmQ7SgmI922aU3j+EGoILWNAct66P7YmAAxPzbI9Onx+UzUmjVeQOrj+KULi/w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.12.0/css/dark-onsen-css-components.css" integrity="sha512-/8RlZMecvzUtnSg0M8haX6aXwzKrU4xO5Bl5dYBZ38QC8iI25AtovLiLOC2KzW0KmhpsnpY5gmhZQylR6bkcIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel=stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.12.0/js/onsenui.js" integrity="sha512-9s1Bo4IWMFpQOC5/NK/VpfEPLy893t70NnEkMAZzuQs7SGbKCoivOnX7Uohoao51LZfDC8OfBdkNSiAtpFSjrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-
-<body>
-    <ons-page>
-        <ons-toolbar>
-
-            <div class="center">Cocktails</div>
-        </ons-toolbar>
-        <ons-tabbar swipeable position="auto">
-            <ons-tab page="home.html" label="Cocktails" icon="fa-cocktail" active>
-                </ons-tab>
-            <ons-tab page="about.html" label="About" icon="fa-cog">
-            </ons-tab>
-         </ons-tabbar>
-    </ons-page>
-    <template id="home.html">
-        <ons-page id="home">
-            <h1>Random Cocktail</h1>
-            <section id="drink-section"></section>
-        </ons-page>
-
-        
-    </template>
-
-    <template id="about.html">
-        <ons-page id="about">
-            <h1>About</h1>
-        </ons-page>
-
-    </template>
-
-    <script src="cocktails.js"></script>
-
-
-
-</body>
-
-</html> -->
