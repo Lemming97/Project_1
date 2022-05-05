@@ -139,18 +139,21 @@ button:focus,
 }
 
 #drink-ingredients,
-#drink-instructions {
+#drink-instructions, #named-drink-ingredients, #named-drink-instructions {
     font-weight: normal;
 }
 
 #drink-section>h2 {
     padding: 10px;
 }
+#drink-results,
+#named-cocktail-section {
+    text-align: center;
+}
 
+#random-drink-form, #named-drink-ingredients, #named-drink-instruction {
 
-#random-drink-form {
-
-    font-weight: bold;
+    /* font-weight: bold; */
     margin: 0;
     display: inline;
     font-size: 26px;
@@ -182,10 +185,14 @@ button:focus,
     float:right;
 }
 /* image*/
-.randomDrinkImg,
-.namedDrinkImg {
+.randomDrinkImg {
     width: 100%;
+    height: auto;
 
+}
+.namedDrinkImg {
+    width: 25%;
+    height: 25%;
 }
 .random-kitten {
     float: right;
