@@ -211,6 +211,7 @@ var displayNamedCocktail = function (cocktail) {
     }) => {
         //drink ingredient 
         var drinkIngredientEL = document.createElement('div');
+        drinkIngredientEL.className = "dr-ingredient";
         drinkIngredientEL.innerHTML = measure + " - " + name;
         ingredientsDivEL.appendChild(drinkIngredientEL);
     });
@@ -218,6 +219,7 @@ var displayNamedCocktail = function (cocktail) {
     //drink instructions 
     var instructionsEL = document.querySelector('#named-drink-instructions');
     instructionsEL.innerHTML = "";
+    instructionsEL.className = "dr-instructions";
     var drinkInstructionsEL = document.createElement('div');
     instructionsEL.innerHTML = cocktail.instructions;
     console.log(cocktail.instructions);

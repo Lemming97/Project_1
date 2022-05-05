@@ -141,13 +141,12 @@ button:focus,
 
 /*body section*/
 #user-results {
-    font-size: 25px;
+    font-size: 20px;
 }
 
 #drink-ingredients,
 #drink-instructions,
-#named-drink-ingredients,
-#named-drink-instructions {
+#named-drink-ingredients {
     font-weight: normal;
 }
 
@@ -164,21 +163,19 @@ button:focus,
 #named-drink-ingredients,
 #named-drink-instructions {
 
-    /* font-weight: bold; */
     margin: 0;
     display: inline;
-    font-size: 25px;
     text-align: center;
 }
 
-#named-drink-instructions {
+/* #named-drink-instructions {
     margin: 20px 20px 20px 20px;
     width: 250px;
     font-weight: normal;
     text-align: center;
     
    
-}
+} */
 
 .random-input-group {
     margin: 0 auto;
@@ -192,6 +189,8 @@ button:focus,
 
 .dr-instructions {
     font-size: 20px;
+    font-weight: normal;
+    justify-content: center;
 }
 
 #drink-Body {
