@@ -2,6 +2,7 @@
 
 var modalEL = document.querySelector('#modal-buttons');
 var drinkBodyEL = document.querySelector('#drink-Body');
+var minorTextEl = document.querySelector('#minor-text');
 
 //age confirmation screen and buttons
 modalEL.addEventListener("click", function (event) {
@@ -24,8 +25,17 @@ modalEL.addEventListener("click", function (event) {
             modalEL.setAttribute("style", "font-size:35px; text-align:center;");
             setTimeout(function () {
                 modalEL.setAttribute("class", "result hide");
+                //api call for Random Kitten Generator 
+                var imgEL = document.createElement('img');
+                // imgEL.className = "random-kitten";
+                var randomNumber = Math.floor(Math.random() * 450) + 200;
+                // generate random number and then replace the 
+                imgEL.src = "https://placekitten.com/" + randomNumber + "/300";
+                document.body.appendChild(imgEL);
+                document.body.appendChild(minorTextEl)
+                minorTextEl.removeAttribute("class");
             }, 1000);
-            document.location.href = "https://www.randomkittengenerator.com/";
+            // document.location.href = "https://www.randomkittengenerator.com/";
 
         }
     } else {
@@ -67,7 +77,7 @@ var saveUserDrinks = function () {
 };
 
 //display items entered from saveUserDrinks function
-var displayDrinkResults = function() {
+var displayDrinkResults = function () {
 
     console.log(drinkResults);
 
@@ -80,7 +90,7 @@ var displayDrinkResults = function() {
         zipCode,
         drink
     }) {
-        console.log(zipCode);
+        // console.log(zipCode);
         // create li tag for each item
         var liEl = document.createElement("li");
         liEl.textContent = drink + " & " + zipCode;
@@ -88,19 +98,40 @@ var displayDrinkResults = function() {
 
 
     });
+    getNamedCocktail();
 
 };
 
-//drink name and zip code API call
+//drink name inputted
 var getNamedCocktail = function () {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+    var userDrinkInput = drinkInputEL.value.trim();
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + userDrinkInput)
         .then(response => response.json())
-        .then(data => console.log(data));
-
+        .then(data => data.drinks[0])
+        .then(cocktail => {
+            console.log(cocktail);
+            // strIngredientN
+            // strMeasureN
+            var ingredients = [];
+            for (var i = 1; i <= 15; i++) {
+                var ingredientName = cocktail["strIngredient" + i];
+                var ingredientMeasure = cocktail["strMeasure" + i];
+                if (ingredientName !== null) {
+                    ingredients.push({
+                        name: ingredientName,
+                        measure: ingredientMeasure,
+                    })
+                }
+            }
+            return {
+                drinkName: cocktail.strDrink,
+                thumbnailImage: cocktail.strDrinkThumb,
+                instructions: cocktail.strInstructions,
+                ingredients,
+            }
+        })
+        .then(cocktail => displayNamedCocktail(cocktail));
 };
-
-getNamedCocktail();
-
 
 //get random drinks API call
 var getRandomCocktail = function () {
@@ -130,8 +161,72 @@ var getRandomCocktail = function () {
             }
         })
         .then(cocktail => displayRandomCocktail(cocktail));
+
 };
 
+// insult API
+
+// var getInsult = function () {
+//     fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json', {
+//             mode: 'no-cors'
+//         })
+//         .then(response => response.json())
+//         .then(data => data.insults[0])
+//         .then(insult => {
+//             console.log(insult);
+
+//         })
+
+
+// };
+// getInsult();
+
+
+
+//Display results functions
+
+
+var displayNamedCocktail = function (cocktail) {
+    //section or title
+    console.log('Describe cocktail name', cocktail);
+    var drinkSectionEL = document.querySelector('#named-cocktail-section');
+    drinkSectionEL.innerHTML = "";
+    var drinkNameEL = document.createElement('h2');
+    drinkNameEL.className = "drink-name";
+    drinkNameEL.innerHTML = cocktail.drinkName;
+    drinkSectionEL.appendChild(drinkNameEL);
+
+    // image 
+    var img = document.createElement('img');
+    img.src = cocktail.thumbnailImage;
+    img.setAttribute("class", "namedDrinkImg");
+    drinkSectionEL.appendChild(img);
+
+    //ingredients
+    var ingredientsDivEL = document.querySelector('#named-drink-ingredients');
+    ingredientsDivEL.innerHTML = "";
+    cocktail.ingredients.forEach(({
+        name,
+        measure
+    }) => {
+        //drink ingredient 
+        var drinkIngredientEL = document.createElement('div');
+        drinkIngredientEL.className = "dr-ingredient";
+        drinkIngredientEL.innerHTML = measure + " - " + name;
+        ingredientsDivEL.appendChild(drinkIngredientEL);
+    });
+
+    //drink instructions 
+    var instructionsEL = document.querySelector('#named-drink-instructions');
+    instructionsEL.innerHTML = "";
+    instructionsEL.className = "dr-instructions";
+    var drinkInstructionsEL = document.createElement('div');
+    instructionsEL.innerHTML = cocktail.instructions;
+    console.log(cocktail.instructions);
+    drinkSectionEL.appendChild(drinkInstructionsEL);
+
+
+};
 
 
 var displayRandomCocktail = function (cocktail) {
@@ -141,7 +236,7 @@ var displayRandomCocktail = function (cocktail) {
     let drinkSection = document.querySelector('#drink-section');
     drinkSection.innerHTML = "";
     let drinkName = document.createElement('h2');
-    drinkName.className = "drink-name"
+    drinkName.className = "drink-name";
     drinkName.innerHTML = cocktail.drinkName;
     drinkSection.appendChild(drinkName);
 
@@ -160,6 +255,7 @@ var displayRandomCocktail = function (cocktail) {
     }) => {
         //drink ingredient 
         var drinkIngredient = document.createElement('div');
+        drinkIngredient.className = "dr-ingredient";
         drinkIngredient.innerHTML = measure + " - " + name;
         ingredientsDiv.appendChild(drinkIngredient);
     });
@@ -168,8 +264,36 @@ var displayRandomCocktail = function (cocktail) {
     //drink instructions 
     let instructions = document.querySelector('#drink-instructions');
     instructions.innerHTML = "";
+    instructions.className = "dr-instructions";
     let drinkInstructions = document.createElement('div');
     instructions.innerHTML = cocktail.instructions;
     console.log(cocktail.instructions);
     drinkSection.appendChild(drinkInstructions);
 };
+
+
+// //Date
+// var date = function () {
+//     var datToday = new Date();
+//     var strDate = datToday.getMonth() + 1 + "/" + datToday.getDate() + "/" + datToday.getFullYear();
+//     var currentDate = querySelector('#currentDay');
+//     currentDate.textContent = "<br>The current date is: ", strDate;
+// };
+
+//clear local storage
+document.getElementById("btnClear").onclick = function () {
+    var drinkResultsEL = document.querySelector('#user-results');
+    var drinkSectionEL = document.querySelector('#named-cocktail-section');
+    var ingredientsDivEL = document.querySelector('#named-drink-ingredients');
+    var instructionsEL = document.querySelector('#named-drink-instructions');
+    drinkResultsEL.textContent = "";
+    drinkSectionEL.textContent="";
+    ingredientsDivEL.textContent="";
+    instructionsEL.textContent="";
+    localStorage.removeItem("userCustomDrink");
+    console.log("testing button click");
+    drinkResultsEL.textContent = "Previous drinks entered have been Cleared!";
+
+
+
+}

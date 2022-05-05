@@ -11,30 +11,29 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Sippy-Sippy Till Your Tippy Tippy</title>
+    <title>Summer Punch</title>
 </head>
 
 <body>
     <div id="drink-Body" class="hide">
         <section class="container">
             <div class="row justify-content-center">
+                <header>
+                    <h1>Get Your Drink On!</h1>
+                    <div class="text-center">
+                        <img src="Assets/images/7071083.png" id="banner" class="img-fluid rounded mx-auto d-bloc"
+                            alt="summer punch banner"></div>
+                </header>
                 <div class="col-12">
-                    <header>
-                        <h1>Get Your Drink On!</h1>
-                    </header>
+
                     <p id="intro-text" class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit.
-                        Morbi
-                        orci
-                        leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit.
-                        Morbi
-                        orci
-                        leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit.
-                        Morbi
-                        orci
-                        leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.
+                        elit.Morbiorcileo, ultricies eget tristique et, interdum eget velit. Nulla facilisi.Lorem ipsum
+                        dolor sit
+                        amet, consectetur adipiscing elit. Morbi,orci,leo, ultricies eget tristique et, interdum eget
+                        velit. <img src="./Assets/images/17816.jpg" class="co-photo3" width="200" height="200"
+                            alt="Bottle Opener icon" />Nulla facilisi.Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit. Morbi,orci eo, ultricies eget tristique et, interdum eget
+                        velit. Nulla facilisi.
                     </p>
                 </div>
             </div>
@@ -47,15 +46,14 @@
                 <div class="col-12">
                     <!--Intro text telling the user what to do-->
                     <p class="text-justify p-3 m-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                        orci leo, ultricies eget
-                        tristique
-                        et, interdum eget velit. Nulla facilisi.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget
-                        tristique
-                        et, interdum eget velit. Nulla facilisi.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget
-                        tristique
-                        et, interdum eget velit. Nulla facilisi.
+                        orci leo, ultricies eget tristique et, interdum eget velit. Nulla facilisi. Lorem ipsum dolor
+                        sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget
+                        tristique et, interdum eget velit. Nulla facilisi. <img
+                            src="./Assets/images/streamline-icon-bottle-opener@400x400.PNG" class="co-photo2"
+                            width="200" height="200" alt="Bottle Opener icon" />Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Morbi orci leo, ultricies eget
+                        tristique et, interdum eget velit. Nulla facilisi.
+
 
                     </p>
                 </div>
@@ -63,7 +61,7 @@
         </section>
 
         <!--User submit form for their drink recipe -->
-        <section class="container">
+        <section class="container named-drink-form">
 
             <h1>Enter your items here:</h1>
             <div class="row flex-column justify-content-center align-items-center">
@@ -79,8 +77,10 @@
                     </div>
                 </div>
                 <div class="col d-flex justify-content-center align-items-center">
-                    <button type="submit" class="btn btn-primary btn-sm my-2" id="getMyDrinkSubmit"
+                    &nbsp; <button type="submit" class="btn btn-primary btn-sm my-2" id="getMyDrinkSubmit"
                         onclick="saveUserDrinks()">Submit</button>
+
+                        &nbsp; <button type="submit" class="btn btn-primary btn-sm my-2" id="btnClear">Clear</button>
                 </div>
             </div>
             <div class="col-12">&nbsp;
@@ -91,6 +91,9 @@
                     <ol id="user-results"></ol>
 
                 </div>
+                <div id="named-cocktail-section"></div>
+                <div id="named-drink-ingredients"></div>
+                <div id="named-drink-instructions"></div>
 
             </div>
         </section>
@@ -102,14 +105,14 @@
 
                 <div class="row justify-content-center align-items-center">
                     <div class="col-12">
-                        <h1>Do you feel lucky?</h1><br>
-                        <div class="random-input-group">
+                        <h1>Do you feel lucky?</h1>
+                        <div class="random-input-group">&nbsp;
                             <!-- <label for="YourInitials">Enter Drink name:</label> -->
                             <!-- <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" /> -->
                             <button type="submit" class="btn btn-primary btn-sm" id="getRandomDrinkSubmit"
                                 onclick="getRandomCocktail()">Click
-                                Me!</button>
-                            <div id="drink-section"></div>
+                                Me!</button>&nbsp;
+                            <div id="drink-section"></div>&nbsp;
                             <div id="drink-ingredients"></div>
                             <div id="drink-instructions"></div>
                         </div>
@@ -117,6 +120,26 @@
                 </div>
             </div>
         </section>
+
+        <div class="container">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+                <!-- <p id="currentDay">
+                    <script>
+                        date();
+                    </script>
+                </p> -->
+                <p class="text-center text-muted">&copy; 2021 Company, Inc</p>
+
+            </footer>
+        </div>
+
     </div>
 
 
@@ -144,7 +167,9 @@
                 <button type="submit" class="btn btn-primary btn-sm" id="modal-confirm-no">No</button>
 
             </div>
-        </div>
+            <div class="random-kitten">
+            <div id="minor-text" class="hide">Lorem itpat convallis velit.Lorem itpat convallis velit.Lorem itpat convallis velit.Lorem itpat convallis velit. </div>
+        </div></div>
     </section>
     <script src="./Assets/js/scripts.js"></script>
 </body>
