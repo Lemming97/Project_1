@@ -260,4 +260,67 @@ footer {
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 
-@media only screen and (max-width:768px) {}
+/*test*/
+/* 
+@media only screen and (min-device-width: 414px) {
+
+    #modal-confirm-yes,
+    #modal-confirm-no {
+        display: inline-block;
+        font-size: 15px;
+        margin-top: 15%;
+    }
+    .co-photo3 {
+        align-items: center;
+        float: unset;
+    }
+    .namedDrinkImg {
+        width: 250px;
+        height: auto;
+    }
+    .randomDrinkImg {
+        width: 250px;
+        height: auto;
+        margin-right: 15%;
+    }
+    #drink-instructions {
+        width: 85%;
+        padding-left: 10px;
+    padding-right: 10px;
+    }
+    #named-drink-instructions {
+        /* width: 75%; 
+        justify-content: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #getRandomDrinkSubmit {
+        margin-right: 20%;
+    }
+    #drink-ingredients{
+        padding-right: 35px;
+
+    }
+    #drink-section > h2 {
+        margin-right: 18%;
+    }
+    body > img {
+        padding-top: 150px;
+        width: 100%;
+        height: auto;
+    }
+    #minor-text {
+        padding-top: 50px;
+        font-size: large;
+    }
+    #modal-buttons > h1 {
+        display:inline-flex;
+    }
+} */
+<<<<<<< HEAD
+=======
+
+/* @media only screen and (max-width:768px) {} */
+
+/*tes test*/
+>>>>>>> Lindsey/feature
