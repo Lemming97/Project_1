@@ -278,8 +278,7 @@ footer {
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 
 
-@media only screen and (min-device-width: 414px) {
-
+@media only screen and (max-width:450px) {
 
     #modal-confirm-yes,
     #modal-confirm-no {
