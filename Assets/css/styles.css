@@ -280,6 +280,8 @@ footer {
 
 @media only screen and (max-width:450px) {
 
+
+
     #modal-confirm-yes,
     #modal-confirm-no {
         display: inline-block;
