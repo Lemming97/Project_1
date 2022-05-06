@@ -50,7 +50,11 @@
                         sit amet, consectetur adipiscing elit. Morbi orci leo, ultricies eget
                         tristique et, interdum eget velit. Nulla facilisi. <img
                             src="./Assets/images/streamline-icon-bottle-opener@400x400.PNG" class="co-photo2"
-                            width="200" height="200" alt="Bottle Opener icon" />Lorem ipsum dolor sit amet, consectetur
+                            width="200" height="200" alt="Bottle Opener icon" /> 
+                            <!--Insult/Jokes display-->
+                            <div id="setup"> </div>
+                            <div id="delivery"></div> 
+                            Lorem ipsum dolor sit amet, consectetur
                         adipiscing elit. Morbi orci leo, ultricies eget
                         tristique et, interdum eget velit. Nulla facilisi.
 
@@ -78,7 +82,7 @@
                 </div>
                 <div class="col d-flex justify-content-center align-items-center">
                     &nbsp; <button type="submit" class="btn btn-primary btn-sm my-2" id="getMyDrinkSubmit"
-                        onclick="saveUserDrinks()">Submit</button>
+                        onclick="saveUserDrinks(), myInsultFetch()">Submit</button>
 
                         &nbsp; <button type="submit" class="btn btn-primary btn-sm my-2" id="btnClear">Clear</button>
                 </div>
@@ -110,7 +114,7 @@
                             <!-- <label for="YourInitials">Enter Drink name:</label> -->
                             <!-- <input type="text" name="name" id="drinkNames" placeholder="Filler Drink Name" /> -->
                             <button type="submit" class="btn btn-primary btn-sm" id="getRandomDrinkSubmit"
-                                onclick="getRandomCocktail()">Click
+                                onclick="getRandomCocktail(), myInsultFetch()">Click
                                 Me!</button>&nbsp;
                             <div id="drink-section"></div>&nbsp;
                             <div id="drink-ingredients"></div>
