@@ -186,6 +186,7 @@ function myInsultFetch() {
 
 // myInsultFetch();
 
+
 //Display results functions
 
 
