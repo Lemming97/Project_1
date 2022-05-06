@@ -165,23 +165,26 @@ var getRandomCocktail = function () {
 };
 
 // insult API
+function myInsultFetch() {
+    const target = "https://v2.jokeapi.dev/joke/Any";
 
-// var getInsult = function () {
-//     fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json', {
-//             mode: 'no-cors'
-//         })
-//         .then(response => response.json())
-//         .then(data => data.insults[0])
-//         .then(insult => {
-//             console.log(insult);
+    fetch(target)
+        .then((blob) => blob.json())
+        .then((data) => {
+            console.log(data);
+            if (data.setup !== undefined && data.delivery !== undefined) {
+                document.getElementById("setup").innerHTML = data.setup;
+                document.getElementById("delivery").innerHTML = data.delivery;
+            } else {
+                myInsultFetch();
+            }
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+}
 
-//         })
-
-
-// };
-// getInsult();
-
-
+myInsultFetch();
 
 
 //Display results functions
@@ -288,9 +291,9 @@ document.getElementById("btnClear").onclick = function () {
     var ingredientsDivEL = document.querySelector('#named-drink-ingredients');
     var instructionsEL = document.querySelector('#named-drink-instructions');
     drinkResultsEL.textContent = "";
-    drinkSectionEL.textContent="";
-    ingredientsDivEL.textContent="";
-    instructionsEL.textContent="";
+    drinkSectionEL.textContent = "";
+    ingredientsDivEL.textContent = "";
+    instructionsEL.textContent = "";
     localStorage.removeItem("userCustomDrink");
     console.log("testing button click");
     drinkResultsEL.textContent = "Previous drinks entered have been Cleared!";
