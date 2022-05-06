@@ -184,8 +184,7 @@ function myInsultFetch() {
         });
 }
 
-myInsultFetch();
-
+// myInsultFetch();
 //Display results functions
 
 

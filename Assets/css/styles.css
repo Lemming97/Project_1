@@ -77,7 +77,7 @@ header {
 
 
 
-/* CSS */
+/* CSS styling for buttons*/
 button,
 #modal-confirm-yes,
 #modal-confirm-no,
@@ -176,6 +176,12 @@ button:focus,
     
    
 } */
+
+#insult-form {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
 
 .random-input-group {
     margin: 0 auto;
