@@ -20,8 +20,8 @@
 
 /* basic stylings */
 body {
-    border: solid 10px #40281A;
-    box-shadow: 8px 8px 6px rgba(0, 0, 0, .5);
+    /* border: solid 10px #40281A;
+    box-shadow: 8px 8px 6px rgba(0, 0, 0, .5); */
     padding: 7vw;
     background-image: url("../images/50335.png");
     background-position: center center;
@@ -160,11 +160,15 @@ button:focus,
 }
 
 #random-drink-form,
-#named-drink-ingredients,
-#named-drink-instructions {
+#named-drink-ingredients{
 
     margin: 0;
     display: inline;
+    text-align: center;
+}
+#named-drink-instructions{
+    margin-left: 20px;
+    margin-right: 20px;
     text-align: center;
 }
 
@@ -179,8 +183,16 @@ button:focus,
 
 #insult-form {
     margin-top: 10px;
-    margin-bottom: 20px;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
     font-size: 20px;
+}
+#setup {
+    font-weight: bold;
+}
+#delivery {
+    font-style: italic;
 }
 
 .random-input-group {
@@ -196,7 +208,6 @@ button:focus,
 .dr-instructions {
     font-size: 20px;
     font-weight: normal;
-    justify-content: center;
 }
 
 #drink-Body {
@@ -266,15 +277,26 @@ footer {
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 
-/*test*/
-/* 
+
 @media only screen and (min-device-width: 414px) {
+
 
     #modal-confirm-yes,
     #modal-confirm-no {
         display: inline-block;
         font-size: 15px;
         margin-top: 15%;
+    }
+    #banner{
+        align-items: center;
+        width: 95%;
+        height: auto;
+
+    }
+    #insult-form {
+        align-items: center;
+        margin-left: 10px;
+        margin-right: 10px;
     }
     .co-photo3 {
         align-items: center;
@@ -295,10 +317,10 @@ footer {
     padding-right: 10px;
     }
     #named-drink-instructions {
-        /* width: 75%; 
+        width: 75%; 
         justify-content: center;
-        padding-left: 10px;
-        padding-right: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
     #getRandomDrinkSubmit {
         margin-right: 20%;
@@ -322,8 +344,4 @@ footer {
     #modal-buttons > h1 {
         display:inline-flex;
     }
-} */
-
-/* @media only screen and (max-width:768px) {} */
-
-/*tes test*/
+}
