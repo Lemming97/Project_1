@@ -172,9 +172,11 @@ function myInsultFetch() {
         .then((blob) => blob.json())
         .then((data) => {
             console.log(data);
+            
             if (data.setup !== undefined && data.delivery !== undefined) {
+                document.getElementById("insult-title").innerHTML = "<center><h2>Free Insult!</h2>"
                 document.getElementById("setup").innerHTML = data.setup;
-                document.getElementById("delivery").innerHTML = data.delivery;
+                document.getElementById("delivery").innerHTML = data.delivery + "</center>";
             } else {
                 myInsultFetch();
             }
