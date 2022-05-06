@@ -215,6 +215,9 @@ button:focus,
     border: solid 6px #40281A;
     box-shadow: 3px 8px 5px rgba(0, 0, 0, .5);
 }
+#minor-text{
+    color: #40281A;
+}
 
 /* Kitten Text */ 
 /* #minor-text { 

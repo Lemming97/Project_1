@@ -47,7 +47,7 @@ modalEL.addEventListener("click", function (event) {
 });
 
 var drinkInputEL = document.querySelector('#drink-name');
-var zipCodeInputEL = document.querySelector('#zipcode');
+// var zipCodeInputEL = document.querySelector('#zipcode');
 
 var drinkResults =
     JSON.parse(window.localStorage.getItem("drinkResults")) || [];
@@ -56,14 +56,15 @@ var drinkResults =
 var saveUserDrinks = function () {
     // get value of input box
     var userDrinkInput = drinkInputEL.value.trim();
-    var userZipCodeInput = zipCodeInputEL.value.trim();
+    // var userZipCodeInput = zipCodeInputEL.value.trim();
 
-    if (userDrinkInput !== "" && userZipCodeInput !== "") {
+    // if (userDrinkInput !== "" && userZipCodeInput !== "") 
+    if (userDrinkInput !== ""){
 
         // format new score object for current user
         var userCustomDrink = {
             drink: userDrinkInput,
-            zipCode: userZipCodeInput
+            // zipCode: userZipCodeInput
         };
 
         // save to local storage
@@ -87,13 +88,13 @@ var displayDrinkResults = function () {
 
 
     drinkResults.forEach(function ({
-        zipCode,
+        // zipCode,
         drink
     }) {
         // console.log(zipCode);
         // create li tag for each item
         var liEl = document.createElement("li");
-        liEl.textContent = drink + " & " + zipCode;
+        liEl.textContent = drink + " &  zipCode";
         olEl.appendChild(liEl);
 
 
