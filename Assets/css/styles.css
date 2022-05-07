@@ -215,11 +215,14 @@ button:focus,
     border: solid 6px #40281A;
     box-shadow: 3px 8px 5px rgba(0, 0, 0, .5);
 }
-
-/*Kitten Text */
-#minor-text {
-    float: right;
+#minor-text{
+    color: #40281A;
 }
+
+/* Kitten Text */ 
+/* #minor-text { 
+    float: right;
+} */
 
 /* image*/
 .randomDrinkImg  {
@@ -233,12 +236,12 @@ button:focus,
     height: auto;
 } 
 
-.random-kitten {
+/* .random-kitten {
     float: right;
     max-width: 100%;
     height: auto;
-    /* text-align: center; */
-}
+  
+} */
 
 .co-photo2 {
 
