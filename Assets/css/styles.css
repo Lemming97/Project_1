@@ -258,6 +258,12 @@ footer {
     clear: left;
 }
 
-/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER iamges break at 550*/
 
-
+@media (max-width: 550px) {
+ .namedDrinkImg, .co-photo2, .co-photo3, .randomDrinkImg, .random-kitten  {
+    width:50%;
+    max-height:50%;
+    
+  }
+}
