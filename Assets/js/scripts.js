@@ -2,7 +2,7 @@
 
 var modalEL = document.querySelector('#modal-buttons');
 var drinkBodyEL = document.querySelector('#drink-Body');
-var minorTextEl = document.querySelector('#minor-text');
+var underAgeEl = document.querySelector('#underage');
 
 //age confirmation screen and buttons
 modalEL.addEventListener("click", function (event) {
@@ -24,16 +24,17 @@ modalEL.addEventListener("click", function (event) {
             modalEL.textContent = "Sorry! You're too young!";
             modalEL.setAttribute("style", "font-size:35px; text-align:center;");
             setTimeout(function () {
-                modalEL.setAttribute("class", "result hide");
+                // modalEL.setAttribute("class", "result hide");
                 //api call for Random Kitten Generator 
-                var imgEL = document.createElement('img');
+                var imgEL = document.getElementById('random-kitten-img');
                 // imgEL.className = "random-kitten";
                 var randomNumber = Math.floor(Math.random() * 450) + 200;
                 // generate random number and then replace the 
                 imgEL.src = "https://placekitten.com/" + randomNumber + "/300";
-                document.body.appendChild(imgEL);
-                document.body.appendChild(minorTextEl)
-                minorTextEl.removeAttribute("class");
+                // modalEL.appendChild(imgEL);
+                // modalEL.appendChild(minorTextEl);
+                underAgeEl.classList.remove('hide');
+                modalEL.classList.add('hide');
             }, 1000);
             // document.location.href = "https://www.randomkittengenerator.com/";
 
