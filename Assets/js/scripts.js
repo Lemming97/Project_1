@@ -151,16 +151,18 @@ var getRandomCocktail = function () {
 // insult API
 
 function myInsultFetch() {
-  const target = "https://v2.jokeapi.dev/joke/Any";
+  const target =
+    "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
 
   fetch(target)
     .then((blob) => blob.json())
     .then((data) => {
       console.log(data);
-      if (data.setup !== undefined && data.delivery !== undefined) {
+      if (data.setup !== undefined && data.delivery !== undefined ) {
         document.getElementById("setup").innerHTML = data.setup;
         document.getElementById("delivery").innerHTML = data.delivery;
-      } else {
+      } 
+      else  {
         myInsultFetch();
       }
     })
