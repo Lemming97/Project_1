@@ -59,7 +59,7 @@ var saveUserDrinks = function () {
     // var userZipCodeInput = zipCodeInputEL.value.trim();
 
     // if (userDrinkInput !== "" && userZipCodeInput !== "") 
-    if (userDrinkInput !== ""){
+    if (userDrinkInput !== "") {
 
         // format new score object for current user
         var userCustomDrink = {
@@ -165,19 +165,43 @@ var getRandomCocktail = function () {
 
 };
 
+// // insult API
+// function myInsultFetch() {
+//     const target = "https://v2.jokeapi.dev/joke/Any";
+
+//     fetch(target)
+//         .then((blob) => blob.json())
+//         .then((data) => {
+//             console.log(data);
+
+//             if (data.setup !== undefined && data.delivery !== undefined) {
+//                 document.getElementById("insult-title").innerHTML = "<center><h2>Free Insult!</h2>"
+//                 document.getElementById("setup").innerHTML = data.setup;
+//                 document.getElementById("delivery").innerHTML = data.delivery + "</center>";
+//             } else {
+//                 myInsultFetch();
+//             }
+//         })
+//         .catch((e) => {
+//             console.log(e);
+//         });
+// }
+
+// myInsultFetch();
+
 // insult API
 function myInsultFetch() {
-    const target = "https://v2.jokeapi.dev/joke/Any";
+    const target =
+        "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
 
     fetch(target)
         .then((blob) => blob.json())
         .then((data) => {
             console.log(data);
-            
             if (data.setup !== undefined && data.delivery !== undefined) {
                 document.getElementById("insult-title").innerHTML = "<center><h2>Free Insult!</h2>"
                 document.getElementById("setup").innerHTML = data.setup;
-                document.getElementById("delivery").innerHTML = data.delivery + "</center>";
+                document.getElementById("delivery").innerHTML = data.delivery;
             } else {
                 myInsultFetch();
             }
@@ -186,9 +210,6 @@ function myInsultFetch() {
             console.log(e);
         });
 }
-
-// myInsultFetch();
-
 
 //Display results functions
 
