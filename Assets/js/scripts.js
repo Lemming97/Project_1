@@ -166,27 +166,27 @@ var getRandomCocktail = function () {
 
 // insult API
 function myInsultFetch() {
-    const target = "https://v2.jokeapi.dev/joke/Any";
+  const target =
+    "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
 
-    fetch(target)
-        .then((blob) => blob.json())
-        .then((data) => {
-            console.log(data);
-            
-            if (data.setup !== undefined && data.delivery !== undefined) {
-                document.getElementById("insult-title").innerHTML = "<center><h2>Free Insult!</h2>"
-                document.getElementById("setup").innerHTML = data.setup;
-                document.getElementById("delivery").innerHTML = data.delivery + "</center>";
-            } else {
-                myInsultFetch();
-            }
-        })
-        .catch((e) => {
-            console.log(e);
-        });
+  fetch(target)
+    .then((blob) => blob.json())
+    .then((data) => {
+      console.log(data);
+      if (data.setup !== undefined && data.delivery !== undefined ) {
+        document.getElementById("setup").innerHTML = data.setup;
+        document.getElementById("delivery").innerHTML = data.delivery;
+      } 
+      else  {
+        myInsultFetch();
+      }
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 }
 
-// myInsultFetch();
+myInsultFetch();
 
 
 //Display results functions

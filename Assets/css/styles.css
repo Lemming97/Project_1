@@ -275,7 +275,7 @@ footer {
     clear: left;
 }
 
-/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER iamges break at 550*/
 
 
 @media only screen and (max-width:450px) {
