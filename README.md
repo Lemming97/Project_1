@@ -124,5 +124,5 @@ There are only so many drinks currently known in the database. It is a practice 
 * Mark Taylor (First-Mate Mixologist )
 * Noreen Arshad (Lido Deck Liaison)
 * Get to the well and get drinking! (in moderation)
-<br>
+
 ![winedrinkbig](https://user-images.githubusercontent.com/100103488/167276869-f5c34959-0f3f-428c-a98c-6a83cc61b431.gif)
