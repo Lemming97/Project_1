@@ -35,8 +35,13 @@ body {
     min-height: 100vh;
 }
 
+p, .form-label {
+    font-size: 18px;
+}
+
 header h1,
 h1 {
+    color: #332015;
     font-weight: bold;
     margin: 0;
     font-size: 36px;
@@ -228,7 +233,7 @@ button:focus,
     color: #40281A;
 }
 #minor-text p {
-    color: #40281A;
+    /* color: #40281A; */
     font-size: 26px;
     
 }
