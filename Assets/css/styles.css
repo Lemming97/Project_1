@@ -35,7 +35,8 @@ body {
     min-height: 100vh;
 }
 
-p, .form-label {
+p,
+.form-label {
     font-size: 18px;
 }
 
@@ -47,6 +48,7 @@ h1 {
     font-size: 36px;
     text-align: center;
 }
+
 
 header {
     padding-top: 15px;
@@ -166,13 +168,14 @@ button:focus,
 }
 
 #random-drink-form,
-#named-drink-ingredients{
+#named-drink-ingredients {
 
     margin: 0;
     display: inline;
     text-align: center;
 }
-#named-drink-instructions{
+
+#named-drink-instructions {
     margin-left: 20px;
     margin-right: 20px;
     text-align: center;
@@ -194,9 +197,11 @@ button:focus,
     padding-bottom: 30px;
     font-size: 20px;
 }
+
 #setup {
     font-weight: bold;
 }
+
 #delivery {
     font-style: italic;
 }
@@ -229,18 +234,19 @@ button:focus,
     border: solid 6px #40281A;
     box-shadow: 3px 8px 5px rgba(0, 0, 0, .5);
 }
-#minor-text h1{
+
+#minor-text h1 {
     color: #40281A;
 }
+
 #minor-text p {
     /* color: #40281A; */
     font-size: 26px;
-    
+
 }
 
-
 /* image*/
-.randomDrinkImg  {
+.randomDrinkImg {
     width: 100%;
     height: auto;
 
@@ -249,9 +255,9 @@ button:focus,
 .namedDrinkImg {
     width: 350px;
     height: auto;
-} 
+}
 
-#random-kitten-img{
+#random-kitten-img {
     margin-bottom: 15px;
 }
 
@@ -290,7 +296,7 @@ footer {
     clear: left;
 }
 
-/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER iamges break at 550*/
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER images break at 450*/
 
 
 @media only screen and (max-width:450px) {
@@ -301,61 +307,74 @@ footer {
         font-size: 15px;
         margin-top: 15%;
     }
-    #banner{
+
+    #banner {
         align-items: center;
         width: 95%;
         height: auto;
 
     }
+
     #insult-form {
         align-items: center;
         margin-left: 10px;
         margin-right: 10px;
     }
+
     .co-photo3 {
         align-items: center;
         float: unset;
     }
+
     .namedDrinkImg {
         width: 250px;
         height: auto;
     }
+
     .randomDrinkImg {
         width: 250px;
         height: auto;
         margin-right: 15%;
     }
+
     #drink-instructions {
         width: 85%;
         padding-left: 10px;
-    padding-right: 10px;
+        padding-right: 10px;
     }
+
     #named-drink-instructions {
-        width: 75%; 
+        width: 75%;
         justify-content: center;
         margin-left: 10px;
         margin-right: 10px;
     }
+
     #getRandomDrinkSubmit {
         margin-right: 20%;
     }
-    #drink-ingredients{
+
+    #drink-ingredients {
         padding-right: 35px;
 
     }
-    #drink-section > h2 {
+
+    #drink-section>h2 {
         margin-right: 18%;
     }
-    body > img {
+
+    body>img {
         padding-top: 150px;
         width: 100%;
         height: auto;
     }
+
     #minor-text {
         padding-top: 50px;
         font-size: large;
     }
-    #modal-buttons > h1 {
-        display:inline-flex;
+
+    #modal-buttons>h1 {
+        display: inline-flex;
     }
 }
