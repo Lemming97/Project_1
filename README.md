@@ -60,9 +60,13 @@ Just select the Deploy link down below, don't waste time here.
 * Don't monetize this, seriously, things are expensive enough. 
 
 ### Screenshots
-![Primary](https://user-images.githubusercontent.com/100103488/167276850-6ef0472c-61a1-44de-8613-620910affa29.png)
-![AdultsideNamecall](https://user-images.githubusercontent.com/100103488/167276848-d6c533a3-9cd6-43f1-a54d-c1807e20a540.png)
-![TooYoungcall](https://user-images.githubusercontent.com/100103488/167276840-d5256524-fc14-4057-8850-88a9e0839ee5.png)
+<br><img src="./Assets/images/screen2.png" alt="screenshot of starting page" width="350"/>
+<br><img src="./Assets/images/screen3.png" alt="screenshot of header and intro paragraph" width="350"/>
+<br><img src="./Assets/images/screen4.png" alt="screenshot of input field of specific cocktail" width="350"/>
+<br><img src="./Assets/images/screenshot1.png" alt="screenshot user inputted drink" width="350"/>
+<br><img src="./Assets/images/screen5.png" alt="screenshot of random drink and insult generator" width="350"/>
+<br><img src="./Assets/images/screen6.png" alt="screenshot of underage screen" width="350"/>
+
 
 ### Features
 
@@ -98,11 +102,11 @@ There are only so many drinks currently known in the database. It is a practice 
 
 ## Resources (Documentation)
 
-> * Joke (api)
-> * Cocktaildb ()api
-> * Placekitten (api)
-> * bootstrap (css)
-> * Google fonts(css)
+> * <a href="https://v2.jokeapi.dev/">Joke</a> (api)
+> * <a href="https://www.thecocktaildb.com">CocktailDB</a> (api)
+> * <a href="https://placekitten.com/">Placekitten</a> (api)
+> * <a href="https://getbootstrap.com/docs/5.1/getting-started/introduction/">Bootstrap</a> (css)
+> * <a href="https://fonts.google.com/">Google Fonts</a> (css)
 
 ## Contributing / Reporting issues
 
@@ -120,4 +124,5 @@ There are only so many drinks currently known in the database. It is a practice 
 * Mark Taylor (First-Mate Mixologist )
 * Noreen Arshad (Lido Deck Liaison)
 * Get to the well and get drinking! (in moderation)
+<br>
 ![winedrinkbig](https://user-images.githubusercontent.com/100103488/167276869-f5c34959-0f3f-428c-a98c-6a83cc61b431.gif)

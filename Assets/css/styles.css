@@ -216,14 +216,23 @@ button:focus,
     border: solid 6px #40281A;
     box-shadow: 3px 8px 5px rgba(0, 0, 0, .5);
 }
-#minor-text{
+
+#underage {
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: #F2F0E4;
+    border: solid 6px #40281A;
+    box-shadow: 3px 8px 5px rgba(0, 0, 0, .5);
+}
+#minor-text h1{
     color: #40281A;
 }
+#minor-text p {
+    color: #40281A;
+    font-size: 26px;
+    
+}
 
-/* Kitten Text */ 
-/* #minor-text { 
-    float: right;
-} */
 
 /* image*/
 .randomDrinkImg  {
@@ -237,12 +246,9 @@ button:focus,
     height: auto;
 } 
 
-/* .random-kitten {
-    float: right;
-    max-width: 100%;
-    height: auto;
-  
-} */
+#random-kitten-img{
+    margin-bottom: 15px;
+}
 
 .co-photo2 {
 

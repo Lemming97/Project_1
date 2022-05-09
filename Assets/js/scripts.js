@@ -95,7 +95,8 @@ var displayDrinkResults = function () {
         // console.log(zipCode);
         // create li tag for each item
         var liEl = document.createElement("li");
-        liEl.textContent = drink + " &  zipCode";
+        // liEl.textContent = drink + " &  zipCode";
+        liEl.textContent = drink;
         olEl.appendChild(liEl);
 
 
@@ -302,12 +303,12 @@ var displayRandomCocktail = function (cocktail) {
 
 
 // //Date
-var date = function () {
-    var datToday = new Date();
-    var strDate = datToday.getMonth() + 1 + "/" + datToday.getDate() + "/" + datToday.getFullYear();
-    var currentDate = querySelector('#currentDay');
-    currentDate.textContent = "<br>The current date is: ", strDate;
-};
+// var date = function () {
+//     var datToday = new Date();
+//     var strDate = datToday.getMonth() + 1 + "/" + datToday.getDate() + "/" + datToday.getFullYear();
+//     var currentDate = querySelector('#currentDay');
+//     currentDate.textContent = "<br>The current date is: ", strDate;
+// };
 
 //clear local storage
 document.getElementById("btnClear").onclick = function () {
