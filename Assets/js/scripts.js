@@ -2,7 +2,7 @@
 
 var modalEL = document.querySelector('#modal-buttons');
 var drinkBodyEL = document.querySelector('#drink-Body');
-var minorTextEl = document.querySelector('#minor-text');
+var underAgeEl = document.querySelector('#underage');
 
 //age confirmation screen and buttons
 modalEL.addEventListener("click", function (event) {
@@ -24,16 +24,17 @@ modalEL.addEventListener("click", function (event) {
             modalEL.textContent = "Sorry! You're too young!";
             modalEL.setAttribute("style", "font-size:35px; text-align:center;");
             setTimeout(function () {
-                modalEL.setAttribute("class", "result hide");
+                // modalEL.setAttribute("class", "result hide");
                 //api call for Random Kitten Generator 
-                var imgEL = document.createElement('img');
+                var imgEL = document.getElementById('random-kitten-img');
                 // imgEL.className = "random-kitten";
                 var randomNumber = Math.floor(Math.random() * 450) + 200;
                 // generate random number and then replace the 
                 imgEL.src = "https://placekitten.com/" + randomNumber + "/300";
-                document.body.appendChild(imgEL);
-                document.body.appendChild(minorTextEl)
-                minorTextEl.removeAttribute("class");
+                // modalEL.appendChild(imgEL);
+                // modalEL.appendChild(minorTextEl);
+                underAgeEl.classList.remove('hide');
+                modalEL.classList.add('hide');
             }, 1000);
             // document.location.href = "https://www.randomkittengenerator.com/";
 
@@ -59,7 +60,7 @@ var saveUserDrinks = function () {
     // var userZipCodeInput = zipCodeInputEL.value.trim();
 
     // if (userDrinkInput !== "" && userZipCodeInput !== "") 
-    if (userDrinkInput !== ""){
+    if (userDrinkInput !== "") {
 
         // format new score object for current user
         var userCustomDrink = {
@@ -165,30 +166,51 @@ var getRandomCocktail = function () {
 
 };
 
+// // insult API
+// function myInsultFetch() {
+//     const target = "https://v2.jokeapi.dev/joke/Any";
+
+//     fetch(target)
+//         .then((blob) => blob.json())
+//         .then((data) => {
+//             console.log(data);
+
+//             if (data.setup !== undefined && data.delivery !== undefined) {
+//                 document.getElementById("insult-title").innerHTML = "<center><h2>Free Insult!</h2>"
+//                 document.getElementById("setup").innerHTML = data.setup;
+//                 document.getElementById("delivery").innerHTML = data.delivery + "</center>";
+//             } else {
+//                 myInsultFetch();
+//             }
+//         })
+//         .catch((e) => {
+//             console.log(e);
+//         });
+// }
+
+// myInsultFetch();
+
 // insult API
 function myInsultFetch() {
-  const target =
-    "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
+    const target =
+        "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
 
-  fetch(target)
-    .then((blob) => blob.json())
-    .then((data) => {
-      console.log(data);
-      if (data.setup !== undefined && data.delivery !== undefined ) {
-        document.getElementById("setup").innerHTML = data.setup;
-        document.getElementById("delivery").innerHTML = data.delivery;
-      } 
-      else  {
-        myInsultFetch();
-      }
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+    fetch(target)
+        .then((blob) => blob.json())
+        .then((data) => {
+            console.log(data);
+            if (data.setup !== undefined && data.delivery !== undefined) {
+                document.getElementById("insult-title").innerHTML = "<center><h2>Free Insult!</h2>"
+                document.getElementById("setup").innerHTML = data.setup;
+                document.getElementById("delivery").innerHTML = data.delivery;
+            } else {
+                myInsultFetch();
+            }
+        })
+        .catch((e) => {
+            console.log(e);
+        });
 }
-
-myInsultFetch();
-
 
 //Display results functions
 
@@ -280,12 +302,12 @@ var displayRandomCocktail = function (cocktail) {
 
 
 // //Date
-// var date = function () {
-//     var datToday = new Date();
-//     var strDate = datToday.getMonth() + 1 + "/" + datToday.getDate() + "/" + datToday.getFullYear();
-//     var currentDate = querySelector('#currentDay');
-//     currentDate.textContent = "<br>The current date is: ", strDate;
-// };
+var date = function () {
+    var datToday = new Date();
+    var strDate = datToday.getMonth() + 1 + "/" + datToday.getDate() + "/" + datToday.getFullYear();
+    var currentDate = querySelector('#currentDay');
+    currentDate.textContent = "<br>The current date is: ", strDate;
+};
 
 //clear local storage
 document.getElementById("btnClear").onclick = function () {

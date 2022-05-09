@@ -20,8 +20,8 @@
 
 /* basic stylings */
 body {
-    /* border: solid 10px #40281A;
-    box-shadow: 8px 8px 6px rgba(0, 0, 0, .5); */
+    border: solid 10px #40281A;
+    box-shadow: 8px 8px 6px rgba(0, 0, 0, .5);
     padding: 7vw;
     background-image: url("../images/50335.png");
     background-position: center center;
@@ -32,6 +32,7 @@ body {
     color: black;
     font-family: 'Libre Baskerville', serif;
     font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
 }
 
 header h1,
